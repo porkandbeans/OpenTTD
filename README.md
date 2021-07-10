@@ -1,6 +1,17 @@
 # GoKritz's modified version of OpenTTD
 Just wanted to make it a bit more obvious to anyone who might be reading that this is NOT the official source code for OpenTTD.
-Below this is the original README.md in case you need help compiling the code.
+On linux (and possibly windows too with git?) it's relatively simple.
+
+## Make sure you have the latest version of cmake!
+
+```
+git clone https://github.com/porkandbeans/openttd
+cd OpenTTD/cmake
+cmake ..
+make
+```
+Below this is the original README.md in case you need help compiling the code on Windows.
+
 
 ## Table of contents
 
