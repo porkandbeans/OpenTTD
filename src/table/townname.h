@@ -9,14 +9,17 @@
 
 #include "../core/enum_type.hpp"
 
-static const char * const _name_original_english_1[] = {
+static const char *const _name_original_english_1[] = {
 	"Great ",
 	"Little ",
 	"New ",
 	"Fort ",
+	"Not-as-great-as-the-other-one ",
+	"Shit ",
+	"Cunting ",
 };
 
-static const char * const _name_original_english_2[] = {
+static const char *const _name_original_english_2[] = {
 	"Wr",
 	"B",
 	"C",
@@ -43,9 +46,9 @@ static const char * const _name_original_english_2[] = {
 	"T",
 	"Tr",
 	"W",
-};
+	"Pe"};
 
-static const char * const _name_original_english_3[] = {
+static const char *const _name_original_english_3[] = {
 	"ar",
 	"a",
 	"e",
@@ -54,9 +57,10 @@ static const char * const _name_original_english_3[] = {
 	"u",
 	"un",
 	"en",
-};
+	"ni"
+	"nil"};
 
-static const char * const _name_original_english_4[] = {
+static const char *const _name_original_english_4[] = {
 	"n",
 	"ning",
 	"ding",
@@ -64,9 +68,9 @@ static const char * const _name_original_english_4[] = {
 	"",
 	"t",
 	"fing",
-};
+	"s"};
 
-static const char * const _name_original_english_5[] = {
+static const char *const _name_original_english_5[] = {
 	"ville",
 	"ham",
 	"field",
@@ -90,9 +94,16 @@ static const char * const _name_original_english_5[] = {
 	"well",
 	"hattan",
 	"burg",
-};
+	"fuck",
+	"shit",
+	"cunt",
+	"bollocks",
+	"wanker",
+	"arse",
+	"turd",
+	"-shit-filled-nappy"};
 
-static const char * const _name_original_english_6[] = {
+static const char *const _name_original_english_6[] = {
 	"-on-sea",
 	" Bay",
 	" Market",
@@ -102,9 +113,12 @@ static const char * const _name_original_english_6[] = {
 	" City",
 	" Ridge",
 	" Springs",
+	" Fuck",
+	" Uhhhhhhh",
+	" What the fuck did you just fucking say about me, you little bitch? I'll have you know I graduated top of my class in the Navy Seals, and I've been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire US armed forces. You are nothing to me but just another target. I will wipe you the fuck out with precision the likes of which has never been seen before on this Earth, mark my fucking words. You think you can get away with saying that shit to me over the Internet? Think again, fucker. As we speak I am contacting my secret network of spies across the USA and your IP is being traced right now so you better prepare for the storm, maggot. The storm that wipes out the pathetic little thing you call your life. You're fucking dead, kid. I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that's just with my bare hands. Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit. If only you could have known what unholy retribution your little \"clever\" comment was about to bring down upon you, maybe you would have held your fucking tongue. But you couldn't, you didn't, and now you're paying the price, you goddamn idiot. I will shit fury all over you and you will drown in it. You're fucking dead, kiddo.",
 };
 
-static const char * const _name_additional_english_prefix[] = {
+static const char *const _name_additional_english_prefix[] = {
 	"Great ",
 	"Little ",
 	"New ",
@@ -113,7 +127,7 @@ static const char * const _name_additional_english_prefix[] = {
 	"Old ",
 };
 
-static const char * const _name_additional_english_1a[] = {
+static const char *const _name_additional_english_1a[] = {
 	"Pen",
 	"Lough",
 	"Stam",
@@ -157,9 +171,22 @@ static const char * const _name_additional_english_1a[] = {
 	"Tyne",
 	"Avon",
 	"Stan",
+	"Cunting",
+	"Slampy",
+	"Fuckling",
+	"Titsboobs",
+	"Cum-stain",
+	"Titty-tit-tits-titty",
+	"Smelly",
+	"Fart",
+	"Shit",
+	"Smelly",
+	"Poo-poo-uh-oh-stinky",
+	"Dumpy-diapies",
+	"Help-I'm-a-turnip",
 };
 
-static const char * const _name_additional_english_1b1[] = {
+static const char *const _name_additional_english_1b1[] = {
 	"Wr",
 	"B",
 	"C",
@@ -188,7 +215,7 @@ static const char * const _name_additional_english_1b1[] = {
 	"W",
 };
 
-static const char * const _name_additional_english_1b2[] = {
+static const char *const _name_additional_english_1b2[] = {
 	"ar",
 	"a",
 	"e",
@@ -203,7 +230,7 @@ static const char * const _name_additional_english_1b2[] = {
 	"en",
 };
 
-static const char * const _name_additional_english_1b3a[] = {
+static const char *const _name_additional_english_1b3a[] = {
 	"n",
 	"d",
 	"",
@@ -212,13 +239,13 @@ static const char * const _name_additional_english_1b3a[] = {
 	"",
 };
 
-static const char * const _name_additional_english_1b3b[] = {
+static const char *const _name_additional_english_1b3b[] = {
 	"ning",
 	"ding",
 	"fing",
 };
 
-static const char * const _name_additional_english_2[] = {
+static const char *const _name_additional_english_2[] = {
 	"ville",
 	"ham",
 	"field",
@@ -274,9 +301,13 @@ static const char * const _name_additional_english_2[] = {
 	"ness",
 	"shaw",
 	"thwaite",
-};
+	"brothel",
+	"sex-dungeon",
+	"slag",
+	"slippery-nips",
+	"poops"};
 
-static const char * const _name_additional_english_3[] = {
+static const char *const _name_additional_english_3[] = {
 	"-on-sea",
 	" Bay",
 	" Market",
@@ -295,9 +326,14 @@ static const char * const _name_additional_english_3[] = {
 	" City",
 	" Ridge",
 	" Springs",
+	"-on-land",
+	"-on-air",
+	"-on-a-duck",
+	"-on-something-or-other",
+	" fuck",
 };
 
-static const char * const _name_austrian_a1[] = {
+static const char *const _name_austrian_a1[] = {
 	"Bad ",
 	"Deutsch ",
 	"Gross ",
@@ -306,7 +342,7 @@ static const char * const _name_austrian_a1[] = {
 	"Maria ",
 };
 
-static const char * const _name_austrian_a2[] = {
+static const char *const _name_austrian_a2[] = {
 	"Aus",
 	"Alten",
 	"Braun",
@@ -351,7 +387,7 @@ static const char * const _name_austrian_a2[] = {
 	"Weissen",
 };
 
-static const char * const _name_austrian_a3[] = {
+static const char *const _name_austrian_a3[] = {
 	"see",
 	"bach",
 	"dorf",
@@ -370,7 +406,7 @@ static const char * const _name_austrian_a3[] = {
 	"haag",
 };
 
-static const char * const _name_austrian_a4[] = {
+static const char *const _name_austrian_a4[] = {
 	"Bruck",
 	"Brunn",
 	"Gams",
@@ -385,12 +421,12 @@ static const char * const _name_austrian_a4[] = {
 	"Wald",
 };
 
-static const char * const _name_austrian_a5[] = {
+static const char *const _name_austrian_a5[] = {
 	"St. ",
 	"Sankt ",
 };
 
-static const char * const _name_austrian_a6[] = {
+static const char *const _name_austrian_a6[] = {
 	"Aegyd",
 	u8"Andr\u00e4",
 	"Georgen",
@@ -413,12 +449,12 @@ static const char * const _name_austrian_a6[] = {
 	"Wolfgang",
 };
 
-static const char * const _name_austrian_f1[] = {
+static const char *const _name_austrian_f1[] = {
 	" an der ",
 	" ob der ",
 };
 
-static const char * const _name_austrian_f2[] = {
+static const char *const _name_austrian_f2[] = {
 	"Donau",
 	"Steyr",
 	"Lafnitz",
@@ -434,11 +470,11 @@ static const char * const _name_austrian_f2[] = {
 	"Ill",
 };
 
-static const char * const _name_austrian_b1[] = {
+static const char *const _name_austrian_b1[] = {
 	" am ",
 };
 
-static const char * const _name_austrian_b2[] = {
+static const char *const _name_austrian_b2[] = {
 	"Brenner",
 	"Dachstein",
 	"Gebirge",
@@ -451,7 +487,7 @@ static const char * const _name_austrian_b2[] = {
 	"Ziller",
 };
 
-static const char * const _name_german_real[] = {
+static const char *const _name_german_real[] = {
 	"Berlin",
 	"Bonn",
 	"Bremen",
@@ -475,13 +511,13 @@ static const char * const _name_german_real[] = {
 	"Wiesbaden",
 };
 
-static const char * const _name_german_pre[] = {
+static const char *const _name_german_pre[] = {
 	"Bad ",
 	"Klein ",
 	"Neu ",
 };
 
-static const char * const _name_german_1[] = {
+static const char *const _name_german_1[] = {
 	"Alb",
 	"Als",
 	"Ander",
@@ -577,7 +613,7 @@ static const char * const _name_german_1[] = {
 	u8"W\u00fcrz",
 };
 
-static const char * const _name_german_2[] = {
+static const char *const _name_german_2[] = {
 	"bach",
 	"berg",
 	u8"br\u00fcck",
@@ -596,15 +632,15 @@ static const char * const _name_german_2[] = {
 	"wald",
 };
 
-static const char * const _name_german_3_an_der[] = {
+static const char *const _name_german_3_an_der[] = {
 	" an der ",
 };
 
-static const char * const _name_german_3_am[] = {
+static const char *const _name_german_3_am[] = {
 	" am ",
 };
 
-static const char * const _name_german_4_an_der[] = {
+static const char *const _name_german_4_an_der[] = {
 	"Oder",
 	"Spree",
 	"Donau",
@@ -612,11 +648,11 @@ static const char * const _name_german_4_an_der[] = {
 	"Elbe",
 };
 
-static const char * const _name_german_4_am[] = {
+static const char *const _name_german_4_am[] = {
 	"Main",
 };
 
-static const char * const _name_spanish_real[] = {
+static const char *const _name_spanish_real[] = {
 	"Caracas",
 	"Maracay",
 	"Maracaibo",
@@ -705,7 +741,7 @@ static const char * const _name_spanish_real[] = {
 	"Santa Rosa",
 };
 
-static const char * const _name_french_real[] = {
+static const char *const _name_french_real[] = {
 	"Agincourt",
 	"Lille",
 	"Dinan",
@@ -778,7 +814,7 @@ static const char * const _name_french_real[] = {
 	u8"Alen\u00e7on",
 };
 
-static const char * const _name_silly_1[] = {
+static const char *const _name_silly_1[] = {
 	"Binky",
 	"Blubber",
 	"Bumble",
@@ -869,7 +905,7 @@ static const char * const _name_silly_1[] = {
 	"Griddle",
 };
 
-static const char * const _name_silly_2[] = {
+static const char *const _name_silly_2[] = {
 	"ton",
 	"bury",
 	"bottom",
@@ -887,14 +923,14 @@ static const char * const _name_silly_2[] = {
 	"bridge",
 };
 
-static const char * const _name_swedish_1[] = {
+static const char *const _name_swedish_1[] = {
 	"Gamla ",
 	"Lilla ",
 	"Nya ",
 	"Stora ",
 };
 
-static const char * const _name_swedish_2[] = {
+static const char *const _name_swedish_2[] = {
 	"Boll",
 	"Bor",
 	"Ed",
@@ -935,7 +971,7 @@ static const char * const _name_swedish_2[] = {
 	u8"\u00d6ster",
 };
 
-static const char * const _name_swedish_2a[] = {
+static const char *const _name_swedish_2a[] = {
 	"B",
 	"Br",
 	"D",
@@ -980,7 +1016,7 @@ static const char * const _name_swedish_2a[] = {
 	"Vr",
 };
 
-static const char * const _name_swedish_2b[] = {
+static const char *const _name_swedish_2b[] = {
 	"a",
 	"e",
 	"i",
@@ -992,7 +1028,7 @@ static const char * const _name_swedish_2b[] = {
 	u8"\u00f6",
 };
 
-static const char * const _name_swedish_2c[] = {
+static const char *const _name_swedish_2c[] = {
 	"ck",
 	"d",
 	"dd",
@@ -1021,7 +1057,7 @@ static const char * const _name_swedish_2c[] = {
 	"v",
 };
 
-static const char * const _name_swedish_3[] = {
+static const char *const _name_swedish_3[] = {
 	"arp",
 	"berg",
 	"boda",
@@ -1056,7 +1092,7 @@ static const char * const _name_swedish_3[] = {
 	u8"\u00e5s",
 };
 
-static const char * const _name_dutch_1[] = {
+static const char *const _name_dutch_1[] = {
 	"Nieuw ",
 	"Oud ",
 	"Groot ",
@@ -1067,7 +1103,7 @@ static const char * const _name_dutch_1[] = {
 	"Klein ",
 };
 
-static const char * const _name_dutch_2[] = {
+static const char *const _name_dutch_2[] = {
 	"Hoog",
 	"Laag",
 	"Zuider",
@@ -1123,7 +1159,7 @@ static const char * const _name_dutch_2[] = {
 	"Hil",
 };
 
-static const char * const _name_dutch_3[] = {
+static const char *const _name_dutch_3[] = {
 	"Drog",
 	"Nat",
 	"Valk",
@@ -1146,7 +1182,7 @@ static const char * const _name_dutch_3[] = {
 	"Koning",
 };
 
-static const char * const _name_dutch_4[] = {
+static const char *const _name_dutch_4[] = {
 	"e",
 	"er",
 	"el",
@@ -1155,7 +1191,7 @@ static const char * const _name_dutch_4[] = {
 	"s",
 };
 
-static const char * const _name_dutch_5[] = {
+static const char *const _name_dutch_5[] = {
 	"stad",
 	"vorst",
 	"dorp",
@@ -1214,7 +1250,7 @@ static const char * const _name_dutch_5[] = {
 	"end",
 };
 
-static const char * const _name_finnish_real[] = {
+static const char *const _name_finnish_real[] = {
 	"Aijala",
 	"Kisko",
 	"Espoo",
@@ -1248,7 +1284,7 @@ static const char * const _name_finnish_real[] = {
 	"Lieksa",
 };
 
-static const char * const _name_finnish_1[] = {
+static const char *const _name_finnish_1[] = {
 	"Hiekka",
 	"Haapa",
 	"Mylly",
@@ -1278,7 +1314,7 @@ static const char * const _name_finnish_1[] = {
 	"Niini",
 };
 
-static const char * const _name_finnish_2[] = {
+static const char *const _name_finnish_2[] = {
 	"Lappeen",
 	"Lohjan",
 	"Savon",
@@ -1292,7 +1328,7 @@ static const char * const _name_finnish_2[] = {
 	"Kangas",
 };
 
-static const char * const _name_finnish_3[] = {
+static const char *const _name_finnish_3[] = {
 	"harju",
 	"linna",
 	u8"j\u00e4rvi",
@@ -1314,7 +1350,7 @@ static const char * const _name_finnish_3[] = {
 	"salo",
 };
 
-static const char * const _name_polish_1_m[] = {
+static const char *const _name_polish_1_m[] = {
 	"Wielki ",
 	u8"Ma\u0142y ",
 	u8"Z\u0142y ",
@@ -1328,7 +1364,7 @@ static const char * const _name_polish_1_m[] = {
 	u8"D\u0119bowy ",
 };
 
-static const char * const _name_polish_1_f[] = {
+static const char *const _name_polish_1_f[] = {
 	"Wielka ",
 	u8"Ma\u0142a ",
 	u8"Z\u0142a ",
@@ -1342,7 +1378,7 @@ static const char * const _name_polish_1_f[] = {
 	u8"D\u0119bowa ",
 };
 
-static const char * const _name_polish_1_n[] = {
+static const char *const _name_polish_1_n[] = {
 	"Wielkie ",
 	u8"Ma\u0142e ",
 	u8"Z\u0142e ",
@@ -1356,7 +1392,7 @@ static const char * const _name_polish_1_n[] = {
 	u8"D\u0119bowe ",
 };
 
-static const char * const _name_polish_2_o[] = {
+static const char *const _name_polish_2_o[] = {
 	"Frombork",
 	"Gniezno",
 	"Olsztyn",
@@ -1393,7 +1429,7 @@ static const char * const _name_polish_2_o[] = {
 	"Wolsztyn",
 };
 
-static const char * const _name_polish_2_m[] = {
+static const char *const _name_polish_2_m[] = {
 	"Jarocin",
 	"Gogolin",
 	u8"Tomasz\u00f3w",
@@ -1444,7 +1480,7 @@ static const char * const _name_polish_2_m[] = {
 	"Garwolin",
 };
 
-static const char * const _name_polish_2_f[] = {
+static const char *const _name_polish_2_f[] = {
 	"Szprotawa",
 	"Pogorzelica",
 	u8"Mot\u0142awa",
@@ -1475,7 +1511,7 @@ static const char * const _name_polish_2_f[] = {
 	"Pilawa",
 };
 
-static const char * const _name_polish_2_n[] = {
+static const char *const _name_polish_2_n[] = {
 	"Lipsko",
 	"Pilzno",
 	"Przodkowo",
@@ -1508,7 +1544,7 @@ static const char * const _name_polish_2_n[] = {
 	"Opoczno",
 };
 
-static const char * const _name_polish_3_m[] = {
+static const char *const _name_polish_3_m[] = {
 	" Wybudowanie",
 	u8" \u015awi\u0119tokrzyski",
 	u8" G\u00f3rski",
@@ -1540,7 +1576,7 @@ static const char * const _name_polish_3_m[] = {
 	" Lesny",
 };
 
-static const char * const _name_polish_3_f[] = {
+static const char *const _name_polish_3_f[] = {
 	" Wybudowanie",
 	u8" \u015awi\u0119tokrzyska",
 	u8" G\u00f3rska",
@@ -1572,7 +1608,7 @@ static const char * const _name_polish_3_f[] = {
 	u8" Le\u015bna",
 };
 
-static const char * const _name_polish_3_n[] = {
+static const char *const _name_polish_3_n[] = {
 	" Wybudowanie",
 	u8" \u015awietokrzyskie",
 	u8" G\u00f3rskie",
@@ -1604,7 +1640,7 @@ static const char * const _name_polish_3_n[] = {
 	u8" Le\u015bne",
 };
 
-static const char * const _name_czech_real[] = {
+static const char *const _name_czech_real[] = {
 	u8"A\u0161",
 	u8"Bene\u0161ov",
 	"Beroun",
@@ -1689,14 +1725,14 @@ static const char * const _name_czech_real[] = {
 	"Znojmo",
 };
 
-
 /* The advanced hyperintelligent Czech town names generator!
  * The tables and MakeCzechTownName() is (c) Petr Baudis 2005 (GPL'd)
  * Feel free to ask me about anything unclear or if you need help
  * with cloning this for your own language. */
 
 /* Sing., pl. */
-enum CzechGender {
+enum CzechGender
+{
 	CZG_SMASC,
 	CZG_SFEM,
 	CZG_SNEUT,
@@ -1709,7 +1745,8 @@ enum CzechGender {
 	CZG_NFREE
 };
 
-enum CzechPattern {
+enum CzechPattern
+{
 	CZP_JARNI,
 	CZP_MLADY,
 	CZP_PRIVL
@@ -1718,18 +1755,18 @@ enum CzechPattern {
 /* [CzechGender][CzechPattern] - replaces the last character of the adjective
  * by this.
  * XXX: [CZG_SMASC][CZP_PRIVL] needs special handling: -ovX -> -uv. */
-static const char * const _name_czech_patmod[][3] = {
-	/* CZG_SMASC */ { u8"\u00ed", u8"\u00fd", "X" },
-	/* CZG_SFEM */  { u8"\u00ed", u8"\u00e1", "a" },
-	/* CZG_SNEUT */ { u8"\u00ed", u8"\u00e9", "o" },
-	/* CZG_PMASC */ { u8"\u00ed", u8"\u00e9", "y" },
-	/* CZG_PFEM */  { u8"\u00ed", u8"\u00e9", "y" },
-	/* CZG_PNEUT */ { u8"\u00ed", u8"\u00e1", "a" }
-};
+static const char *const _name_czech_patmod[][3] = {
+	/* CZG_SMASC */ {u8"\u00ed", u8"\u00fd", "X"},
+	/* CZG_SFEM */ {u8"\u00ed", u8"\u00e1", "a"},
+	/* CZG_SNEUT */ {u8"\u00ed", u8"\u00e9", "o"},
+	/* CZG_PMASC */ {u8"\u00ed", u8"\u00e9", "y"},
+	/* CZG_PFEM */ {u8"\u00ed", u8"\u00e9", "y"},
+	/* CZG_PNEUT */ {u8"\u00ed", u8"\u00e1", "a"}};
 
 /* This way the substantive can choose only some adjectives/endings:
  * At least one of these flags must be satisfied: */
-enum CzechAllow {
+enum CzechAllow
+{
 	CZA_SHORT = 1,
 	CZA_MIDDLE = 2,
 	CZA_LONG = 4,
@@ -1739,24 +1776,27 @@ enum CzechAllow {
 DECLARE_ENUM_AS_BIT_SET(CzechAllow)
 
 /* All these flags must be satisfied (in the stem->others direction): */
-enum CzechChoose {
+enum CzechChoose
+{
 	CZC_NONE = 0, // No requirements.
 	CZC_COLOR = 1,
-	CZC_POSTFIX = 2, // Matched if postfix was inserted.
+	CZC_POSTFIX = 2,   // Matched if postfix was inserted.
 	CZC_NOPOSTFIX = 4, // Matched if no postfix was inserted.
 	CZC_ANY = ~0
 };
 
 DECLARE_ENUM_AS_BIT_SET(CzechChoose)
 
-struct CzechNameSubst {
+struct CzechNameSubst
+{
 	CzechGender gender;
 	CzechAllow allow;
 	CzechChoose choose;
 	const char *name;
 };
 
-struct CzechNameAdj {
+struct CzechNameAdj
+{
 	CzechPattern pattern;
 	CzechChoose choose;
 	const char *name;
@@ -1764,154 +1804,160 @@ struct CzechNameAdj {
 
 /* Some of items which should be common are doubled. */
 static const CzechNameAdj _name_czech_adj[] = {
-	{ CZP_JARNI, CZC_ANY, u8"Horn\u00ed" },
-	{ CZP_JARNI, CZC_ANY, u8"Horn\u00ed" },
-	{ CZP_JARNI, CZC_ANY, u8"Doln\u00ed" },
-	{ CZP_JARNI, CZC_ANY, u8"Doln\u00ed" },
-	{ CZP_JARNI, CZC_ANY, u8"P\u0159edn\u00ed" },
-	{ CZP_JARNI, CZC_ANY, u8"Zadn\u00ed" },
-	{ CZP_JARNI, CZC_ANY, u8"Kosteln\u00ed" },
-	{ CZP_JARNI, CZC_ANY, u8"Havran\u00ed" },
-	{ CZP_JARNI, CZC_ANY, u8"\u0158\u00ed\u010dn\u00ed" },
-	{ CZP_JARNI, CZC_ANY, u8"Jezern\u00ed" },
-	{ CZP_MLADY, CZC_ANY, u8"Velk\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Velk\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Mal\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Mal\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Vysok\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"\u010cesk\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Moravsk\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Slov\u00e1ck\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Slezsk\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Uhersk\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Star\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Star\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Nov\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Nov\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Mlad\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Kr\u00e1lovsk\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Kamenn\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Cihlov\u00fd" },
-	{ CZP_MLADY, CZC_ANY, u8"Divn\u00fd" },
-	{ CZP_MLADY, CZC_COLOR, u8"\u010cerven\u00e1" },
-	{ CZP_MLADY, CZC_COLOR, u8"\u010cerven\u00e1" },
-	{ CZP_MLADY, CZC_COLOR, u8"\u010cerven\u00e1" },
-	{ CZP_MLADY, CZC_COLOR, u8"Zelen\u00e1" },
-	{ CZP_MLADY, CZC_COLOR, u8"\u017dlut\u00e1" },
-	{ CZP_MLADY, CZC_COLOR, u8"Siv\u00e1" },
-	{ CZP_MLADY, CZC_COLOR, u8"\u0160ed\u00e1" },
-	{ CZP_MLADY, CZC_COLOR, u8"B\u00edl\u00e1" },
-	{ CZP_MLADY, CZC_COLOR, u8"B\u00edl\u00e1" },
-	{ CZP_MLADY, CZC_COLOR, u8"Modr\u00e1" },
-	{ CZP_MLADY, CZC_COLOR, u8"R\u016f\u017eov\u00e1" },
-	{ CZP_MLADY, CZC_COLOR, u8"\u010cern\u00e1" },
-	{ CZP_PRIVL, CZC_ANY, u8"Kr\u00e1lova" },
-	{ CZP_PRIVL, CZC_ANY, "Janova" },
-	{ CZP_PRIVL, CZC_ANY, "Karlova" },
-	{ CZP_PRIVL, CZC_ANY, u8"Kry\u0161tofova" },
-	{ CZP_PRIVL, CZC_ANY, u8"Ji\u0159\u00edkova" },
-	{ CZP_PRIVL, CZC_ANY, "Petrova" },
-	{ CZP_PRIVL, CZC_ANY, "Sudovo" },
+	{CZP_JARNI, CZC_ANY, u8"Horn\u00ed"},
+	{CZP_JARNI, CZC_ANY, u8"Horn\u00ed"},
+	{CZP_JARNI, CZC_ANY, u8"Doln\u00ed"},
+	{CZP_JARNI, CZC_ANY, u8"Doln\u00ed"},
+	{CZP_JARNI, CZC_ANY, u8"P\u0159edn\u00ed"},
+	{CZP_JARNI, CZC_ANY, u8"Zadn\u00ed"},
+	{CZP_JARNI, CZC_ANY, u8"Kosteln\u00ed"},
+	{CZP_JARNI, CZC_ANY, u8"Havran\u00ed"},
+	{CZP_JARNI, CZC_ANY, u8"\u0158\u00ed\u010dn\u00ed"},
+	{CZP_JARNI, CZC_ANY, u8"Jezern\u00ed"},
+	{CZP_MLADY, CZC_ANY, u8"Velk\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Velk\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Mal\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Mal\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Vysok\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"\u010cesk\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Moravsk\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Slov\u00e1ck\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Slezsk\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Uhersk\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Star\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Star\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Nov\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Nov\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Mlad\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Kr\u00e1lovsk\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Kamenn\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Cihlov\u00fd"},
+	{CZP_MLADY, CZC_ANY, u8"Divn\u00fd"},
+	{CZP_MLADY, CZC_COLOR, u8"\u010cerven\u00e1"},
+	{CZP_MLADY, CZC_COLOR, u8"\u010cerven\u00e1"},
+	{CZP_MLADY, CZC_COLOR, u8"\u010cerven\u00e1"},
+	{CZP_MLADY, CZC_COLOR, u8"Zelen\u00e1"},
+	{CZP_MLADY, CZC_COLOR, u8"\u017dlut\u00e1"},
+	{CZP_MLADY, CZC_COLOR, u8"Siv\u00e1"},
+	{CZP_MLADY, CZC_COLOR, u8"\u0160ed\u00e1"},
+	{CZP_MLADY, CZC_COLOR, u8"B\u00edl\u00e1"},
+	{CZP_MLADY, CZC_COLOR, u8"B\u00edl\u00e1"},
+	{CZP_MLADY, CZC_COLOR, u8"Modr\u00e1"},
+	{CZP_MLADY, CZC_COLOR, u8"R\u016f\u017eov\u00e1"},
+	{CZP_MLADY, CZC_COLOR, u8"\u010cern\u00e1"},
+	{CZP_PRIVL, CZC_ANY, u8"Kr\u00e1lova"},
+	{CZP_PRIVL, CZC_ANY, "Janova"},
+	{CZP_PRIVL, CZC_ANY, "Karlova"},
+	{CZP_PRIVL, CZC_ANY, u8"Kry\u0161tofova"},
+	{CZP_PRIVL, CZC_ANY, u8"Ji\u0159\u00edkova"},
+	{CZP_PRIVL, CZC_ANY, "Petrova"},
+	{CZP_PRIVL, CZC_ANY, "Sudovo"},
 };
 
 /* Considered a stem for choose/allow matching purposes. */
 static const CzechNameSubst _name_czech_subst_full[] = {
-	{ CZG_SMASC, CZA_ALL, CZC_COLOR, "Sedlec" },
-	{ CZG_SMASC, CZA_ALL, CZC_COLOR, "Brod" },
-	{ CZG_SMASC, CZA_ALL, CZC_COLOR, "Brod" },
-	{ CZG_SMASC, CZA_ALL, CZC_NONE, u8"\u00daval" },
-	{ CZG_SMASC, CZA_ALL, CZC_COLOR, u8"\u017d\u010f\u00e1r" },
-	{ CZG_SMASC, CZA_ALL, CZC_COLOR, "Smrk" },
-	{ CZG_SFEM,  CZA_ALL, CZC_COLOR, "Hora" },
-	{ CZG_SFEM,  CZA_ALL, CZC_COLOR, "Lhota" },
-	{ CZG_SFEM,  CZA_ALL, CZC_COLOR, "Lhota" },
-	{ CZG_SFEM,  CZA_ALL, CZC_COLOR, "Hlava" },
-	{ CZG_SFEM,  CZA_ALL, CZC_COLOR, u8"L\u00edpa" },
-	{ CZG_SNEUT, CZA_ALL, CZC_COLOR, "Pole" },
-	{ CZG_SNEUT, CZA_ALL, CZC_COLOR, u8"\u00dadol\u00ed" },
-	{ CZG_PMASC, CZA_ALL, CZC_NONE, u8"\u00davaly" },
-	{ CZG_PFEM,  CZA_ALL, CZC_COLOR, "Luka" },
-	{ CZG_PNEUT, CZA_ALL, CZC_COLOR, "Pole" },
+	{CZG_SMASC, CZA_ALL, CZC_COLOR, "Sedlec"},
+	{CZG_SMASC, CZA_ALL, CZC_COLOR, "Brod"},
+	{CZG_SMASC, CZA_ALL, CZC_COLOR, "Brod"},
+	{CZG_SMASC, CZA_ALL, CZC_NONE, u8"\u00daval"},
+	{CZG_SMASC, CZA_ALL, CZC_COLOR, u8"\u017d\u010f\u00e1r"},
+	{CZG_SMASC, CZA_ALL, CZC_COLOR, "Smrk"},
+	{CZG_SFEM, CZA_ALL, CZC_COLOR, "Hora"},
+	{CZG_SFEM, CZA_ALL, CZC_COLOR, "Lhota"},
+	{CZG_SFEM, CZA_ALL, CZC_COLOR, "Lhota"},
+	{CZG_SFEM, CZA_ALL, CZC_COLOR, "Hlava"},
+	{CZG_SFEM, CZA_ALL, CZC_COLOR, u8"L\u00edpa"},
+	{CZG_SNEUT, CZA_ALL, CZC_COLOR, "Pole"},
+	{CZG_SNEUT, CZA_ALL, CZC_COLOR, u8"\u00dadol\u00ed"},
+	{CZG_PMASC, CZA_ALL, CZC_NONE, u8"\u00davaly"},
+	{CZG_PFEM, CZA_ALL, CZC_COLOR, "Luka"},
+	{CZG_PNEUT, CZA_ALL, CZC_COLOR, "Pole"},
 };
 
 /* TODO: More stems needed. --pasky */
 static const CzechNameSubst _name_czech_subst_stem[] = {
-	{ CZG_SMASC,             CZA_MIDDLE,            CZC_COLOR, "Kostel" },
-	{ CZG_SMASC,             CZA_MIDDLE,            CZC_COLOR, u8"Kl\u00e1\u0161ter" },
-	{ CZG_SMASC, CZA_SHORT,                         CZC_COLOR, "Lhot" },
-	{ CZG_SFEM,  CZA_SHORT,                         CZC_COLOR, "Lhot" },
-	{ CZG_SFEM,  CZA_SHORT,                         CZC_COLOR, "Hur" },
-	{ CZG_FREE,              CZA_MIDDLE | CZA_LONG, CZC_NONE, "Sedl" },
-	{ CZG_FREE,  CZA_SHORT | CZA_MIDDLE | CZA_LONG, CZC_COLOR, "Hrad" },
-	{ CZG_NFREE,             CZA_MIDDLE,            CZC_NONE, "Pras" },
-	{ CZG_NFREE,             CZA_MIDDLE,            CZC_NONE, u8"Ba\u017e" },
-	{ CZG_NFREE,             CZA_MIDDLE,            CZC_NONE, "Tes" },
-	{ CZG_NFREE,             CZA_MIDDLE,            CZC_NONE, u8"U\u017e" },
-	{ CZG_NFREE,             CZA_MIDDLE | CZA_LONG, CZC_POSTFIX, u8"B\u0159" },
-	{ CZG_NFREE,             CZA_MIDDLE | CZA_LONG, CZC_NONE, "Vod" },
-	{ CZG_NFREE,             CZA_MIDDLE | CZA_LONG, CZC_NONE, "Jan" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, "Prach" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, "Kunr" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, "Strak" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, u8"V\u00edt" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, u8"Vy\u0161" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, u8"\u017dat" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, u8"\u017der" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, u8"St\u0159ed" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, "Harv" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, "Pruh" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, "Tach" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, u8"P\u00edsn" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, "Jin" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, "Jes" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, "Jar" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, "Sok" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, "Hod" },
-	{ CZG_NFREE,                          CZA_LONG, CZC_NONE, "Net" },
-	{ CZG_FREE,                           CZA_LONG, CZC_NONE, u8"Pra\u017e" },
-	{ CZG_FREE,                           CZA_LONG, CZC_NONE, "Nerat" },
-	{ CZG_FREE,                           CZA_LONG, CZC_NONE, "Kral" },
-	{ CZG_FREE,                           CZA_LONG, CZC_NONE, "Hut" },
-	{ CZG_FREE,                           CZA_LONG, CZC_NOPOSTFIX, "Pan" },
-	{ CZG_FREE,  CZA_SHORT | CZA_MIDDLE | CZA_LONG, CZC_NOPOSTFIX, u8"Odst\u0159ed" },
-	{ CZG_FREE,  CZA_SHORT | CZA_MIDDLE | CZA_LONG, CZC_COLOR, "Mrat" },
-	{ CZG_FREE,                           CZA_LONG, CZC_COLOR, "Hlav" },
-	{ CZG_FREE,  CZA_SHORT | CZA_MIDDLE,            CZC_NONE, u8"M\u011b\u0159" },
-	{ CZG_FREE,              CZA_MIDDLE | CZA_LONG, CZC_NONE, "Lip" },
+	{CZG_SMASC, CZA_MIDDLE, CZC_COLOR, "Kostel"},
+	{CZG_SMASC, CZA_MIDDLE, CZC_COLOR, u8"Kl\u00e1\u0161ter"},
+	{CZG_SMASC, CZA_SHORT, CZC_COLOR, "Lhot"},
+	{CZG_SFEM, CZA_SHORT, CZC_COLOR, "Lhot"},
+	{CZG_SFEM, CZA_SHORT, CZC_COLOR, "Hur"},
+	{CZG_FREE, CZA_MIDDLE | CZA_LONG, CZC_NONE, "Sedl"},
+	{CZG_FREE, CZA_SHORT | CZA_MIDDLE | CZA_LONG, CZC_COLOR, "Hrad"},
+	{CZG_NFREE, CZA_MIDDLE, CZC_NONE, "Pras"},
+	{CZG_NFREE, CZA_MIDDLE, CZC_NONE, u8"Ba\u017e"},
+	{CZG_NFREE, CZA_MIDDLE, CZC_NONE, "Tes"},
+	{CZG_NFREE, CZA_MIDDLE, CZC_NONE, u8"U\u017e"},
+	{CZG_NFREE, CZA_MIDDLE | CZA_LONG, CZC_POSTFIX, u8"B\u0159"},
+	{CZG_NFREE, CZA_MIDDLE | CZA_LONG, CZC_NONE, "Vod"},
+	{CZG_NFREE, CZA_MIDDLE | CZA_LONG, CZC_NONE, "Jan"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, "Prach"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, "Kunr"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, "Strak"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, u8"V\u00edt"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, u8"Vy\u0161"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, u8"\u017dat"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, u8"\u017der"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, u8"St\u0159ed"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, "Harv"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, "Pruh"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, "Tach"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, u8"P\u00edsn"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, "Jin"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, "Jes"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, "Jar"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, "Sok"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, "Hod"},
+	{CZG_NFREE, CZA_LONG, CZC_NONE, "Net"},
+	{CZG_FREE, CZA_LONG, CZC_NONE, u8"Pra\u017e"},
+	{CZG_FREE, CZA_LONG, CZC_NONE, "Nerat"},
+	{CZG_FREE, CZA_LONG, CZC_NONE, "Kral"},
+	{CZG_FREE, CZA_LONG, CZC_NONE, "Hut"},
+	{CZG_FREE, CZA_LONG, CZC_NOPOSTFIX, "Pan"},
+	{CZG_FREE, CZA_SHORT | CZA_MIDDLE | CZA_LONG, CZC_NOPOSTFIX, u8"Odst\u0159ed"},
+	{CZG_FREE, CZA_SHORT | CZA_MIDDLE | CZA_LONG, CZC_COLOR, "Mrat"},
+	{CZG_FREE, CZA_LONG, CZC_COLOR, "Hlav"},
+	{CZG_FREE, CZA_SHORT | CZA_MIDDLE, CZC_NONE, u8"M\u011b\u0159"},
+	{CZG_FREE, CZA_MIDDLE | CZA_LONG, CZC_NONE, "Lip"},
 };
 
 /* Optional postfix inserted between stem and ending. */
-static const char * const _name_czech_subst_postfix[] = {
-	"av", "an", "at",
-	"ov", "on", "ot",
-	"ev", "en", "et",
+static const char *const _name_czech_subst_postfix[] = {
+	"av",
+	"an",
+	"at",
+	"ov",
+	"on",
+	"ot",
+	"ev",
+	"en",
+	"et",
 };
 
 /* This array must have the both neutral genders at the end! */
 static const CzechNameSubst _name_czech_subst_ending[] = {
-	{ CZG_SMASC, CZA_SHORT | CZA_MIDDLE,            CZC_ANY, "ec" },
-	{ CZG_SMASC, CZA_SHORT | CZA_MIDDLE,            CZC_ANY, u8"\u00edn" },
-	{ CZG_SMASC, CZA_SHORT | CZA_MIDDLE | CZA_LONG, CZC_ANY, "ov" },
-	{ CZG_SMASC, CZA_SHORT       |        CZA_LONG, CZC_ANY, "kov" },
-	{ CZG_SMASC,                          CZA_LONG, CZC_POSTFIX, u8"\u00edn" },
-	{ CZG_SMASC,                          CZA_LONG, CZC_POSTFIX, u8"n\u00edk" },
-	{ CZG_SMASC,                          CZA_LONG, CZC_ANY, "burk" },
-	{ CZG_SFEM,  CZA_SHORT,                         CZC_ANY, "ka" },
-	{ CZG_SFEM,              CZA_MIDDLE,            CZC_ANY, "inka" },
-	{ CZG_SFEM,              CZA_MIDDLE,            CZC_ANY, u8"n\u00e1" },
-	{ CZG_SFEM,                           CZA_LONG, CZC_ANY, "ava" },
-	{ CZG_PMASC,                          CZA_LONG, CZC_POSTFIX, u8"\u00edky" },
-	{ CZG_PMASC,                          CZA_LONG, CZC_ANY, "upy" },
-	{ CZG_PMASC,                          CZA_LONG, CZC_ANY, "olupy" },
-	{ CZG_PFEM,                           CZA_LONG, CZC_ANY, "avy" },
-	{ CZG_PFEM,  CZA_SHORT | CZA_MIDDLE | CZA_LONG, CZC_ANY, "ice" },
-	{ CZG_PFEM,  CZA_SHORT | CZA_MIDDLE | CZA_LONG, CZC_ANY, u8"i\u010dky" },
-	{ CZG_PNEUT, CZA_SHORT | CZA_MIDDLE,            CZC_ANY, "na" },
-	{ CZG_SNEUT, CZA_SHORT | CZA_MIDDLE,            CZC_ANY, "no" },
-	{ CZG_SNEUT,                          CZA_LONG, CZC_ANY, u8"i\u0161t\u011b" },
+	{CZG_SMASC, CZA_SHORT | CZA_MIDDLE, CZC_ANY, "ec"},
+	{CZG_SMASC, CZA_SHORT | CZA_MIDDLE, CZC_ANY, u8"\u00edn"},
+	{CZG_SMASC, CZA_SHORT | CZA_MIDDLE | CZA_LONG, CZC_ANY, "ov"},
+	{CZG_SMASC, CZA_SHORT | CZA_LONG, CZC_ANY, "kov"},
+	{CZG_SMASC, CZA_LONG, CZC_POSTFIX, u8"\u00edn"},
+	{CZG_SMASC, CZA_LONG, CZC_POSTFIX, u8"n\u00edk"},
+	{CZG_SMASC, CZA_LONG, CZC_ANY, "burk"},
+	{CZG_SFEM, CZA_SHORT, CZC_ANY, "ka"},
+	{CZG_SFEM, CZA_MIDDLE, CZC_ANY, "inka"},
+	{CZG_SFEM, CZA_MIDDLE, CZC_ANY, u8"n\u00e1"},
+	{CZG_SFEM, CZA_LONG, CZC_ANY, "ava"},
+	{CZG_PMASC, CZA_LONG, CZC_POSTFIX, u8"\u00edky"},
+	{CZG_PMASC, CZA_LONG, CZC_ANY, "upy"},
+	{CZG_PMASC, CZA_LONG, CZC_ANY, "olupy"},
+	{CZG_PFEM, CZA_LONG, CZC_ANY, "avy"},
+	{CZG_PFEM, CZA_SHORT | CZA_MIDDLE | CZA_LONG, CZC_ANY, "ice"},
+	{CZG_PFEM, CZA_SHORT | CZA_MIDDLE | CZA_LONG, CZC_ANY, u8"i\u010dky"},
+	{CZG_PNEUT, CZA_SHORT | CZA_MIDDLE, CZC_ANY, "na"},
+	{CZG_SNEUT, CZA_SHORT | CZA_MIDDLE, CZC_ANY, "no"},
+	{CZG_SNEUT, CZA_LONG, CZC_ANY, u8"i\u0161t\u011b"},
 };
 
-static const char * const _name_czech_suffix[] = {
+static const char *const _name_czech_suffix[] = {
 	"nad Cidlinou",
 	u8"nad Dyj\u00ed",
 	"nad Jihlavou",
@@ -1933,9 +1979,7 @@ static const char * const _name_czech_suffix[] = {
 	u8"na Morav\u011b",
 };
 
-
-
-static const char * const _name_romanian_real[] = {
+static const char *const _name_romanian_real[] = {
 	"Adjud",
 	"Alba Iulia",
 	"Alexandria",
@@ -2032,7 +2076,7 @@ static const char * const _name_romanian_real[] = {
 	u8"Zal\u0103u",
 };
 
-static const char * const _name_slovak_real[] = {
+static const char *const _name_slovak_real[] = {
 	"Bratislava",
 	u8"B\u00e1novce nad Bebravou",
 	u8"Bansk\u00e1 Bystrica",
@@ -2122,7 +2166,7 @@ static const char * const _name_slovak_real[] = {
 	"Zvolen",
 };
 
-static const char * const _name_norwegian_1[] = {
+static const char *const _name_norwegian_1[] = {
 	"Arna",
 	"Aust",
 	u8"Bj\u00f8rk",
@@ -2209,7 +2253,7 @@ static const char * const _name_norwegian_1[] = {
 	u8"V\u00e5g",
 };
 
-static const char * const _name_norwegian_2[] = {
+static const char *const _name_norwegian_2[] = {
 	"aker",
 	"anger",
 	"bakken",
@@ -2279,7 +2323,7 @@ static const char * const _name_norwegian_2[] = {
 	u8"\u00e5sen",
 };
 
-static const char * const _name_norwegian_real[] = {
+static const char *const _name_norwegian_real[] = {
 	"Alta",
 	"Arendal",
 	"Askim",
@@ -2376,7 +2420,7 @@ static const char * const _name_norwegian_real[] = {
 	u8"\u00c5ndalsnes",
 };
 
-static const char * const _name_hungarian_1[] = {
+static const char *const _name_hungarian_1[] = {
 	"Nagy-",
 	"Kis-",
 	u8"Fels\u0151-",
@@ -2384,7 +2428,7 @@ static const char * const _name_hungarian_1[] = {
 	u8"\u00daj-",
 };
 
-static const char * const _name_hungarian_2[] = {
+static const char *const _name_hungarian_2[] = {
 	"Bodrog",
 	u8"Dr\u00e1va",
 	"Duna",
@@ -2441,7 +2485,7 @@ static const char * const _name_hungarian_2[] = {
 	u8"V\u00e1s\u00e1ros",
 };
 
-static const char * const _name_hungarian_3[] = {
+static const char *const _name_hungarian_3[] = {
 	u8"ap\u00e1ti",
 	u8"b\u00e1ba",
 	"bikk",
@@ -2460,7 +2504,7 @@ static const char * const _name_hungarian_3[] = {
 	u8"v\u00f6lgy",
 };
 
-static const char * const _name_hungarian_4[] = {
+static const char *const _name_hungarian_4[] = {
 	"alja",
 	u8"egyh\u00e1za",
 	u8"h\u00e1za",
@@ -2468,7 +2512,7 @@ static const char * const _name_hungarian_4[] = {
 	u8"v\u00e1r",
 };
 
-static const char * const _name_hungarian_real[] = {
+static const char *const _name_hungarian_real[] = {
 	"Ajka",
 	u8"Asz\u00f3d",
 	"Badacsony",
@@ -2507,7 +2551,7 @@ static const char * const _name_hungarian_real[] = {
 	"Zirc",
 };
 
-static const char * const _name_swiss_real[] = {
+static const char *const _name_swiss_real[] = {
 	"Aarau",
 	"Aesch",
 	"Altdorf",
@@ -2633,7 +2677,7 @@ static const char * const _name_swiss_real[] = {
 	"Zug",
 };
 
-static const char * const _name_danish_1[] = {
+static const char *const _name_danish_1[] = {
 	"Gamle ",
 	"Lille ",
 	"Nye ",
@@ -2648,7 +2692,7 @@ static const char * const _name_danish_1[] = {
 	"Kongens ",
 };
 
-static const char * const _name_danish_2[] = {
+static const char *const _name_danish_2[] = {
 	"Ager",
 	"Alle",
 	"Aske",
@@ -2732,7 +2776,7 @@ static const char * const _name_danish_2[] = {
 	u8"\u00c5l",
 };
 
-static const char * const _name_danish_3[] = {
+static const char *const _name_danish_3[] = {
 	"basse",
 	"borg",
 	"berg",
@@ -2765,7 +2809,7 @@ static const char * const _name_danish_3[] = {
 	"skov",
 };
 
-static const char * const _name_turkish_prefix[] = {
+static const char *const _name_turkish_prefix[] = {
 	u8"Ak\u00e7a",
 	u8"Alt\u0131n",
 	u8"Bah\u00e7e",
@@ -2784,7 +2828,7 @@ static const char * const _name_turkish_prefix[] = {
 	"Yeni",
 };
 
-static const char * const _name_turkish_middle[] = {
+static const char *const _name_turkish_middle[] = {
 	u8"aga\u00e7",
 	"ayva",
 	u8"\u00e7am",
@@ -2794,7 +2838,7 @@ static const char * const _name_turkish_middle[] = {
 	u8"yal\u0131",
 };
 
-static const char * const _name_turkish_suffix[] = {
+static const char *const _name_turkish_suffix[] = {
 	"dere",
 	"hisar",
 	"kale",
@@ -2811,7 +2855,7 @@ static const char * const _name_turkish_suffix[] = {
 	"yurt",
 };
 
-static const char * const _name_turkish_real[] = {
+static const char *const _name_turkish_real[] = {
 	"Adana",
 	u8"Ad\u0131yaman",
 	"Afyon",
@@ -2879,7 +2923,7 @@ static const char * const _name_turkish_real[] = {
 	u8"D\u00fczce",
 };
 
-static const char * const _name_italian_real[] = {
+static const char *const _name_italian_real[] = {
 	"Roma",
 	"Milano",
 	"Napoli",
@@ -2960,7 +3004,7 @@ static const char * const _name_italian_real[] = {
 	"Grosseto",
 };
 
-static const char * const _name_italian_pref[] = {
+static const char *const _name_italian_pref[] = {
 	"Alpe ",
 	"Borgo ",
 	"Cascina ",
@@ -2975,7 +3019,7 @@ static const char * const _name_italian_pref[] = {
 	"Villar ",
 };
 
-static const char * const _name_italian_1m[] = {
+static const char *const _name_italian_1m[] = {
 	"Bel",
 	"Borgo",
 	"Bosco",
@@ -3003,7 +3047,7 @@ static const char * const _name_italian_1m[] = {
 	"Vico",
 };
 
-static const char * const _name_italian_1f[] = {
+static const char *const _name_italian_1f[] = {
 	"Acqua",
 	"Bra",
 	"Cala",
@@ -3029,7 +3073,7 @@ static const char * const _name_italian_1f[] = {
 	"Villa",
 };
 
-static const char * const _name_italian_2[] = {
+static const char *const _name_italian_2[] = {
 	"bell",
 	"bianc",
 	"cald",
@@ -3059,7 +3103,7 @@ static const char * const _name_italian_2[] = {
 	"viv",
 };
 
-static const char * const _name_italian_2i[] = {
+static const char *const _name_italian_2i[] = {
 	"",
 	"breve",
 	"brevi",
@@ -3085,8 +3129,7 @@ static const char * const _name_italian_2i[] = {
 	"versiere",
 };
 
-
-static const char * const _name_italian_3[] = {
+static const char *const _name_italian_3[] = {
 	" Marittimo",
 	" Marittima",
 	" del Capo",
@@ -3110,14 +3153,14 @@ static const char * const _name_italian_3[] = {
 	" Ticino",
 };
 
-static const char * const _name_italian_river1[] = {
+static const char *const _name_italian_river1[] = {
 	" del",
 	" sul",
 	" al",
 	" nel",
 };
 
-static const char * const _name_italian_river2[] = {
+static const char *const _name_italian_river2[] = {
 	"l'Adda",
 	"l'Adige",
 	"le Alpi",
@@ -3145,7 +3188,7 @@ static const char * const _name_italian_river2[] = {
 	" Tevere",
 };
 
-static const char * const _name_catalan_real[] = {
+static const char *const _name_catalan_real[] = {
 	"Barcelona",
 	"L'Hospitalet de Llobregat",
 	"Cerdanyola",
@@ -3215,7 +3258,7 @@ static const char * const _name_catalan_real[] = {
 	"Roses",
 };
 
-static const char * const _name_catalan_pref[] = {
+static const char *const _name_catalan_pref[] = {
 	"El Pont de ",
 	"Parets de ",
 	"Canet de ",
@@ -3250,7 +3293,7 @@ static const char * const _name_catalan_pref[] = {
 
 };
 
-static const char * const _name_catalan_1m[] = {
+static const char *const _name_catalan_1m[] = {
 	"Torrent",
 	"Cami",
 	"Mont",
@@ -3259,7 +3302,7 @@ static const char * const _name_catalan_1m[] = {
 	"Riu",
 };
 
-static const char * const _name_catalan_1f[] = {
+static const char *const _name_catalan_1f[] = {
 	"Pala",
 	"Selva",
 	"Vall",
@@ -3270,7 +3313,7 @@ static const char * const _name_catalan_1f[] = {
 	"Terra",
 };
 
-static const char * const _name_catalan_2m[] = {
+static const char *const _name_catalan_2m[] = {
 	"alt",
 	"baix",
 	"fosc",
@@ -3281,7 +3324,7 @@ static const char * const _name_catalan_2m[] = {
 	u8"gr\u00eds",
 };
 
-static const char * const _name_catalan_2f[] = {
+static const char *const _name_catalan_2f[] = {
 	"baixa",
 	"alta",
 	"fosca",
@@ -3292,7 +3335,7 @@ static const char * const _name_catalan_2f[] = {
 	"freda",
 };
 
-static const char * const _name_catalan_3[] = {
+static const char *const _name_catalan_3[] = {
 	u8" Desp\u00ed",
 	" Desvern",
 	u8" del Cam\u00ed",
@@ -3305,7 +3348,7 @@ static const char * const _name_catalan_3[] = {
 	" de la Plana",
 };
 
-static const char * const _name_catalan_river1[] = {
+static const char *const _name_catalan_river1[] = {
 	" d'Anoia",
 	" de Ter",
 	" de Llobregat",
