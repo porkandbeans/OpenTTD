@@ -10,7 +10,7 @@ cd OpenTTD/cmake
 cmake ..
 make
 ```
-Below this is the original README.md in case you need help compiling the code on Windows.
+Below this is the original README.md in case you need help compiling the code on Windows. Take it with a grain of salt as they will be instructions for compiling the official source code (not this).
 
 
 ## Table of contents
