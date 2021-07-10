@@ -74,8 +74,8 @@
 #include "safeguards.h"
 
 #ifdef __EMSCRIPTEN__
-#	include <emscripten.h>
-#	include <emscripten/html5.h>
+#include <emscripten.h>
+#include <emscripten/html5.h>
 #endif
 
 void CallLandscapeTick();
@@ -109,7 +109,8 @@ void CDECL usererror(const char *s, ...)
 	va_end(va);
 
 	ShowOSErrorBox(buf, false);
-	if (VideoDriver::GetInstance() != nullptr) VideoDriver::GetInstance()->Stop();
+	if (VideoDriver::GetInstance() != nullptr)
+		VideoDriver::GetInstance()->Stop();
 
 #ifdef __EMSCRIPTEN__
 	emscripten_exit_pointerlock();
@@ -137,7 +138,8 @@ void CDECL error(const char *s, ...)
 	vseprintf(buf, lastof(buf), s, va);
 	va_end(va);
 
-	if (VideoDriver::GetInstance() == nullptr || VideoDriver::GetInstance()->HasGUI()) {
+	if (VideoDriver::GetInstance() == nullptr || VideoDriver::GetInstance()->HasGUI())
+	{
 		ShowOSErrorBox(buf, true);
 	}
 
@@ -170,38 +172,37 @@ static void ShowHelp()
 
 	p += seprintf(p, lastof(buf), "OpenTTD %s\n", _openttd_revision);
 	p = strecpy(p,
-		"\n"
-		"\n"
-		"Command line options:\n"
-		"  -v drv              = Set video driver (see below)\n"
-		"  -s drv              = Set sound driver (see below) (param bufsize,hz)\n"
-		"  -m drv              = Set music driver (see below)\n"
-		"  -b drv              = Set the blitter to use (see below)\n"
-		"  -r res              = Set resolution (for instance 800x600)\n"
-		"  -h                  = Display this help text\n"
-		"  -t year             = Set starting year\n"
-		"  -d [[fac=]lvl[,...]]= Debug mode\n"
-		"  -e                  = Start Editor\n"
-		"  -g [savegame]       = Start new/save game immediately\n"
-		"  -G seed             = Set random seed\n"
-		"  -n [ip:port#company]= Join network game\n"
-		"  -p password         = Password to join server\n"
-		"  -P password         = Password to join company\n"
-		"  -D [ip][:port]      = Start dedicated server\n"
-		"  -l ip[:port]        = Redirect Debug()\n"
+				"\n"
+				"\n"
+				"Command line options:\n"
+				"  -v drv              = Set video driver (see below)\n"
+				"  -s drv              = Set sound driver (see below) (param bufsize,hz)\n"
+				"  -m drv              = Set music driver (see below)\n"
+				"  -b drv              = Set the blitter to use (see below)\n"
+				"  -r res              = Set resolution (for instance 800x600)\n"
+				"  -h                  = Display this help text\n"
+				"  -t year             = Set starting year\n"
+				"  -d [[fac=]lvl[,...]]= Debug mode\n"
+				"  -e                  = Start Editor\n"
+				"  -g [savegame]       = Start new/save game immediately\n"
+				"  -G seed             = Set random seed\n"
+				"  -n [ip:port#company]= Join network game\n"
+				"  -p password         = Password to join server\n"
+				"  -P password         = Password to join company\n"
+				"  -D [ip][:port]      = Start dedicated server\n"
+				"  -l ip[:port]        = Redirect Debug()\n"
 #if !defined(_WIN32)
-		"  -f                  = Fork into the background (dedicated only)\n"
+				"  -f                  = Fork into the background (dedicated only)\n"
 #endif
-		"  -I graphics_set     = Force the graphics set (see below)\n"
-		"  -S sounds_set       = Force the sounds set (see below)\n"
-		"  -M music_set        = Force the music set (see below)\n"
-		"  -c config_file      = Use 'config_file' instead of 'openttd.cfg'\n"
-		"  -x                  = Never save configuration changes to disk\n"
-		"  -X                  = Don't use global folders to search for files\n"
-		"  -q savegame         = Write some information about the savegame and exit\n"
-		"\n",
-		lastof(buf)
-	);
+				"  -I graphics_set     = Force the graphics set (see below)\n"
+				"  -S sounds_set       = Force the sounds set (see below)\n"
+				"  -M music_set        = Force the music set (see below)\n"
+				"  -c config_file      = Use 'config_file' instead of 'openttd.cfg'\n"
+				"  -x                  = Never save configuration changes to disk\n"
+				"  -X                  = Don't use global folders to search for files\n"
+				"  -q savegame         = Write some information about the savegame and exit\n"
+				"\n",
+				lastof(buf));
 
 	/* List the graphics packs */
 	p = BaseGraphics::GetSetsList(p, lastof(buf));
@@ -256,13 +257,16 @@ static void WriteSavegameInfo(const char *name)
 	p += seprintf(p, lastof(buf), "NewGRF ver:   0x%08X\n", last_ottd_rev);
 	p += seprintf(p, lastof(buf), "Modified:     %d\n", ever_modified);
 
-	if (removed_newgrfs) {
+	if (removed_newgrfs)
+	{
 		p += seprintf(p, lastof(buf), "NewGRFs have been removed\n");
 	}
 
 	p = strecpy(p, "NewGRFs:\n", lastof(buf));
-	if (_load_check_data.HasNewGrfs()) {
-		for (GRFConfig *c = _load_check_data.grfconfig; c != nullptr; c = c->next) {
+	if (_load_check_data.HasNewGrfs())
+	{
+		for (GRFConfig *c = _load_check_data.grfconfig; c != nullptr; c = c->next)
+		{
 			char md5sum[33];
 			md5sumToString(md5sum, lastof(md5sum), HasBit(c->flags, GCF_COMPATIBLE) ? c->original_md5sum : c->ident.md5sum);
 			p += seprintf(p, lastof(buf), "%08X %s %s\n", c->ident.grfid, md5sum, c->filename);
@@ -278,7 +282,6 @@ static void WriteSavegameInfo(const char *name)
 #endif
 }
 
-
 /**
  * Extract the resolution from the given string and store
  * it in the 'res' parameter.
@@ -288,15 +291,15 @@ static void WriteSavegameInfo(const char *name)
 static void ParseResolution(Dimension *res, const char *s)
 {
 	const char *t = strchr(s, 'x');
-	if (t == nullptr) {
+	if (t == nullptr)
+	{
 		ShowInfoF("Invalid resolution '%s'", s);
 		return;
 	}
 
-	res->width  = std::max(strtoul(s, nullptr, 0), 64UL);
+	res->width = std::max(strtoul(s, nullptr, 0), 64UL);
 	res->height = std::max(strtoul(t + 1, nullptr, 0), 64UL);
 }
-
 
 /**
  * Uninitializes drivers, frees allocated memory, cleans pools, ...
@@ -306,7 +309,8 @@ static void ShutdownGame()
 {
 	IConsoleFree();
 
-	if (_network_available) NetworkShutDown(); // Shut down the network and close any open connections
+	if (_network_available)
+		NetworkShutDown(); // Shut down the network and close any open connections
 
 	DriverFactoryBase::ShutdownDrivers();
 
@@ -323,7 +327,8 @@ static void ShutdownGame()
 	PoolBase::Clean(PT_ALL);
 
 	/* No NewGRFs were loaded when it was still bootstrapping. */
-	if (_game_mode != GM_BOOTSTRAP) ResetNewGRFData();
+	if (_game_mode != GM_BOOTSTRAP)
+		ResetNewGRFData();
 
 	UninitFreeType();
 }
@@ -334,39 +339,20 @@ static void ShutdownGame()
  */
 static void LoadIntroGame(bool load_newgrfs = true)
 {
-	_game_mode = GM_MENU;
-
-	if (load_newgrfs) ResetGRFConfig(false);
-
-	/* Setup main window */
-	ResetWindowSystem();
-	SetupColoursAndInitialWindow();
-
-	/* Load the default opening screen savegame */
-	if (SaveOrLoad("opntitle.dat", SLO_LOAD, DFT_GAME_FILE, BASESET_DIR) != SL_OK) {
-		GenerateWorld(GWM_EMPTY, 64, 64); // if failed loading, make empty world.
-		SetLocalCompany(COMPANY_SPECTATOR);
-	} else {
-		SetLocalCompany(COMPANY_FIRST);
-	}
-
-	FixTitleGameZoom();
-	_pause_mode = PM_UNPAUSED;
-	_cursor.fix_at = false;
-
-	CheckForMissingGlyphs();
-
-	MusicLoop(); // ensure music is correct
+	return; // don't want this, don't need it
 }
 
 void MakeNewgameSettingsLive()
 {
-	for (CompanyID c = COMPANY_FIRST; c < MAX_COMPANIES; c++) {
-		if (_settings_game.ai_config[c] != nullptr) {
+	for (CompanyID c = COMPANY_FIRST; c < MAX_COMPANIES; c++)
+	{
+		if (_settings_game.ai_config[c] != nullptr)
+		{
 			delete _settings_game.ai_config[c];
 		}
 	}
-	if (_settings_game.game_config != nullptr) {
+	if (_settings_game.game_config != nullptr)
+	{
 		delete _settings_game.game_config;
 	}
 
@@ -375,17 +361,21 @@ void MakeNewgameSettingsLive()
 	_settings_game = _settings_newgame;
 	_old_vds = _settings_client.company.vehicle;
 
-	for (CompanyID c = COMPANY_FIRST; c < MAX_COMPANIES; c++) {
+	for (CompanyID c = COMPANY_FIRST; c < MAX_COMPANIES; c++)
+	{
 		_settings_game.ai_config[c] = nullptr;
-		if (_settings_newgame.ai_config[c] != nullptr) {
+		if (_settings_newgame.ai_config[c] != nullptr)
+		{
 			_settings_game.ai_config[c] = new AIConfig(_settings_newgame.ai_config[c]);
-			if (!AIConfig::GetConfig(c, AIConfig::SSS_FORCE_GAME)->HasScript()) {
+			if (!AIConfig::GetConfig(c, AIConfig::SSS_FORCE_GAME)->HasScript())
+			{
 				AIConfig::GetConfig(c, AIConfig::SSS_FORCE_GAME)->Change(nullptr);
 			}
 		}
 	}
 	_settings_game.game_config = nullptr;
-	if (_settings_newgame.game_config != nullptr) {
+	if (_settings_newgame.game_config != nullptr)
+	{
 		_settings_game.game_config = new GameConfig(_settings_newgame.game_config);
 	}
 }
@@ -393,22 +383,24 @@ void MakeNewgameSettingsLive()
 void OpenBrowser(const char *url)
 {
 	/* Make sure we only accept urls that are sure to open a browser. */
-	if (strstr(url, "http://") != url && strstr(url, "https://") != url) return;
+	if (strstr(url, "http://") != url && strstr(url, "https://") != url)
+		return;
 
 	extern void OSOpenBrowser(const char *url);
 	OSOpenBrowser(url);
 }
 
 /** Callback structure of statements to be executed after the NewGRF scan. */
-struct AfterNewGRFScan : NewGRFScanCallback {
-	Year startyear = INVALID_YEAR;              ///< The start year.
+struct AfterNewGRFScan : NewGRFScanCallback
+{
+	Year startyear = INVALID_YEAR;				///< The start year.
 	uint32 generation_seed = GENERATE_NEW_SEED; ///< Seed for the new game.
-	std::string dedicated_host;                 ///< Hostname for the dedicated server.
-	uint16 dedicated_port = 0;                  ///< Port for the dedicated server.
-	std::string connection_string;              ///< Information about the server to connect to
-	std::string join_server_password;           ///< The password to join the server with.
-	std::string join_company_password;          ///< The password to join the company with.
-	bool save_config = true;                    ///< The save config setting.
+	std::string dedicated_host;					///< Hostname for the dedicated server.
+	uint16 dedicated_port = 0;					///< Port for the dedicated server.
+	std::string connection_string;				///< Information about the server to connect to
+	std::string join_server_password;			///< The password to join the server with.
+	std::string join_company_password;			///< The password to join the company with.
+	bool save_config = true;					///< The save config setting.
 
 	/**
 	 * Create a new callback.
@@ -449,14 +441,18 @@ struct AfterNewGRFScan : NewGRFScanCallback {
 		/* restore saved music volume */
 		MusicDriver::GetInstance()->SetVolume(_settings_client.music.music_vol);
 
-		if (startyear != INVALID_YEAR) IConsoleSetSetting("game_creation.starting_year", startyear);
-		if (generation_seed != GENERATE_NEW_SEED) _settings_newgame.game_creation.generation_seed = generation_seed;
+		if (startyear != INVALID_YEAR)
+			IConsoleSetSetting("game_creation.starting_year", startyear);
+		if (generation_seed != GENERATE_NEW_SEED)
+			_settings_newgame.game_creation.generation_seed = generation_seed;
 
-		if (!dedicated_host.empty()) {
+		if (!dedicated_host.empty())
+		{
 			_network_bind_list.clear();
 			_network_bind_list.emplace_back(dedicated_host);
 		}
-		if (dedicated_port != 0) _settings_client.network.server_port = dedicated_port;
+		if (dedicated_port != 0)
+			_settings_client.network.server_port = dedicated_port;
 
 		/* initialize the ingame console */
 		IConsoleInit();
@@ -464,9 +460,11 @@ struct AfterNewGRFScan : NewGRFScanCallback {
 		IConsoleCmdExec("exec scripts/autoexec.scr 0");
 
 		/* Make sure _settings is filled with _settings_newgame if we switch to a game directly */
-		if (_switch_mode != SM_NONE) MakeNewgameSettingsLive();
+		if (_switch_mode != SM_NONE)
+			MakeNewgameSettingsLive();
 
-		if (_network_available && !connection_string.empty()) {
+		if (_network_available && !connection_string.empty())
+		{
 			LoadIntroGame();
 			_switch_mode = SM_NONE;
 
@@ -484,34 +482,33 @@ extern void DedicatedFork();
 
 /** Options of OpenTTD. */
 static const OptionData _options[] = {
-	 GETOPT_SHORT_VALUE('I'),
-	 GETOPT_SHORT_VALUE('S'),
-	 GETOPT_SHORT_VALUE('M'),
-	 GETOPT_SHORT_VALUE('m'),
-	 GETOPT_SHORT_VALUE('s'),
-	 GETOPT_SHORT_VALUE('v'),
-	 GETOPT_SHORT_VALUE('b'),
+	GETOPT_SHORT_VALUE('I'),
+	GETOPT_SHORT_VALUE('S'),
+	GETOPT_SHORT_VALUE('M'),
+	GETOPT_SHORT_VALUE('m'),
+	GETOPT_SHORT_VALUE('s'),
+	GETOPT_SHORT_VALUE('v'),
+	GETOPT_SHORT_VALUE('b'),
 	GETOPT_SHORT_OPTVAL('D'),
 	GETOPT_SHORT_OPTVAL('n'),
-	 GETOPT_SHORT_VALUE('l'),
-	 GETOPT_SHORT_VALUE('p'),
-	 GETOPT_SHORT_VALUE('P'),
+	GETOPT_SHORT_VALUE('l'),
+	GETOPT_SHORT_VALUE('p'),
+	GETOPT_SHORT_VALUE('P'),
 #if !defined(_WIN32)
-	 GETOPT_SHORT_NOVAL('f'),
+	GETOPT_SHORT_NOVAL('f'),
 #endif
-	 GETOPT_SHORT_VALUE('r'),
-	 GETOPT_SHORT_VALUE('t'),
+	GETOPT_SHORT_VALUE('r'),
+	GETOPT_SHORT_VALUE('t'),
 	GETOPT_SHORT_OPTVAL('d'),
-	 GETOPT_SHORT_NOVAL('e'),
+	GETOPT_SHORT_NOVAL('e'),
 	GETOPT_SHORT_OPTVAL('g'),
-	 GETOPT_SHORT_VALUE('G'),
-	 GETOPT_SHORT_VALUE('c'),
-	 GETOPT_SHORT_NOVAL('x'),
-	 GETOPT_SHORT_NOVAL('X'),
-	 GETOPT_SHORT_VALUE('q'),
-	 GETOPT_SHORT_NOVAL('h'),
-	GETOPT_END()
-};
+	GETOPT_SHORT_VALUE('G'),
+	GETOPT_SHORT_VALUE('c'),
+	GETOPT_SHORT_NOVAL('x'),
+	GETOPT_SHORT_NOVAL('X'),
+	GETOPT_SHORT_VALUE('q'),
+	GETOPT_SHORT_NOVAL('h'),
+	GETOPT_END()};
 
 /**
  * Main entry point for this lovely game.
@@ -544,15 +541,31 @@ int openttd_main(int argc, char *argv[])
 	int ret = 0;
 
 	int i;
-	while ((i = mgo.GetOpt()) != -1) {
-		switch (i) {
-		case 'I': graphics_set = mgo.opt; break;
-		case 'S': sounds_set = mgo.opt; break;
-		case 'M': music_set = mgo.opt; break;
-		case 'm': musicdriver = mgo.opt; break;
-		case 's': sounddriver = mgo.opt; break;
-		case 'v': videodriver = mgo.opt; break;
-		case 'b': blitter = mgo.opt; break;
+	while ((i = mgo.GetOpt()) != -1)
+	{
+		switch (i)
+		{
+		case 'I':
+			graphics_set = mgo.opt;
+			break;
+		case 'S':
+			sounds_set = mgo.opt;
+			break;
+		case 'M':
+			music_set = mgo.opt;
+			break;
+		case 'm':
+			musicdriver = mgo.opt;
+			break;
+		case 's':
+			sounddriver = mgo.opt;
+			break;
+		case 'v':
+			videodriver = mgo.opt;
+			break;
+		case 'b':
+			blitter = mgo.opt;
+			break;
 		case 'D':
 			musicdriver = "null";
 			sounddriver = "null";
@@ -560,11 +573,14 @@ int openttd_main(int argc, char *argv[])
 			blitter = "null";
 			dedicated = true;
 			SetDebugString("net=4");
-			if (mgo.opt != nullptr) {
+			if (mgo.opt != nullptr)
+			{
 				scanner->dedicated_host = ParseFullConnectionString(mgo.opt, scanner->dedicated_port);
 			}
 			break;
-		case 'f': _dedicated_forks = true; break;
+		case 'f':
+			_dedicated_forks = true;
+			break;
 		case 'n':
 			scanner->connection_string = mgo.opt; // optional IP:port#company parameter
 			break;
@@ -577,18 +593,27 @@ int openttd_main(int argc, char *argv[])
 		case 'P':
 			scanner->join_company_password = mgo.opt;
 			break;
-		case 'r': ParseResolution(&resolution, mgo.opt); break;
-		case 't': scanner->startyear = atoi(mgo.opt); break;
-		case 'd': {
+		case 'r':
+			ParseResolution(&resolution, mgo.opt);
+			break;
+		case 't':
+			scanner->startyear = atoi(mgo.opt);
+			break;
+		case 'd':
+		{
 #if defined(_WIN32)
-				CreateConsole();
+			CreateConsole();
 #endif
-				if (mgo.opt != nullptr) SetDebugString(mgo.opt);
-				break;
-			}
-		case 'e': _switch_mode = (_switch_mode == SM_LOAD_GAME || _switch_mode == SM_LOAD_SCENARIO ? SM_LOAD_SCENARIO : SM_EDITOR); break;
+			if (mgo.opt != nullptr)
+				SetDebugString(mgo.opt);
+			break;
+		}
+		case 'e':
+			_switch_mode = (_switch_mode == SM_LOAD_GAME || _switch_mode == SM_LOAD_SCENARIO ? SM_LOAD_SCENARIO : SM_EDITOR);
+			break;
 		case 'g':
-			if (mgo.opt != nullptr) {
+			if (mgo.opt != nullptr)
+			{
 				_file_to_saveload.SetName(mgo.opt);
 				bool is_scenario = _switch_mode == SM_EDITOR || _switch_mode == SM_LOAD_SCENARIO;
 				_switch_mode = is_scenario ? SM_LOAD_SCENARIO : SM_LOAD_GAME;
@@ -596,9 +621,11 @@ int openttd_main(int argc, char *argv[])
 
 				/* if the file doesn't exist or it is not a valid savegame, let the saveload code show an error */
 				auto t = _file_to_saveload.name.find_last_of('.');
-				if (t != std::string::npos) {
+				if (t != std::string::npos)
+				{
 					FiosType ft = FiosGetSavegameListCallback(SLO_LOAD, _file_to_saveload.name, _file_to_saveload.name.substr(t).c_str(), nullptr, nullptr);
-					if (ft != FIOS_TYPE_INVALID) _file_to_saveload.SetMode(ft);
+					if (ft != FIOS_TYPE_INVALID)
+						_file_to_saveload.SetMode(ft);
 				}
 
 				break;
@@ -606,13 +633,16 @@ int openttd_main(int argc, char *argv[])
 
 			_switch_mode = SM_NEWGAME;
 			/* Give a random map if no seed has been given */
-			if (scanner->generation_seed == GENERATE_NEW_SEED) {
+			if (scanner->generation_seed == GENERATE_NEW_SEED)
+			{
 				scanner->generation_seed = InteractiveRandom();
 			}
 			break;
-		case 'q': {
+		case 'q':
+		{
 			DeterminePaths(argv[0], only_local_path);
-			if (StrEmpty(mgo.opt)) {
+			if (StrEmpty(mgo.opt))
+			{
 				ret = 1;
 				return ret;
 			}
@@ -623,9 +653,11 @@ int openttd_main(int argc, char *argv[])
 
 			_load_check_data.Clear();
 			SaveOrLoadResult res = SaveOrLoad(mgo.opt, SLO_CHECK, DFT_GAME_FILE, SAVE_DIR, false);
-			if (res != SL_OK || _load_check_data.HasErrors()) {
+			if (res != SL_OK || _load_check_data.HasErrors())
+			{
 				fprintf(stderr, "Failed to open savegame\n");
-				if (_load_check_data.HasErrors()) {
+				if (_load_check_data.HasErrors())
+				{
 					char buf[256];
 					SetDParamStr(0, _load_check_data.error_data);
 					GetString(buf, _load_check_data.error, lastof(buf));
@@ -637,18 +669,28 @@ int openttd_main(int argc, char *argv[])
 			WriteSavegameInfo(title);
 			return ret;
 		}
-		case 'G': scanner->generation_seed = strtoul(mgo.opt, nullptr, 10); break;
-		case 'c': _config_file = mgo.opt; break;
-		case 'x': scanner->save_config = false; break;
-		case 'X': only_local_path = true; break;
+		case 'G':
+			scanner->generation_seed = strtoul(mgo.opt, nullptr, 10);
+			break;
+		case 'c':
+			_config_file = mgo.opt;
+			break;
+		case 'x':
+			scanner->save_config = false;
+			break;
+		case 'X':
+			only_local_path = true;
+			break;
 		case 'h':
 			i = -2; // Force printing of help.
 			break;
 		}
-		if (i == -2) break;
+		if (i == -2)
+			break;
 	}
 
-	if (i == -2 || mgo.numleft > 0) {
+	if (i == -2 || mgo.numleft > 0)
+	{
 		/* Either the user typed '-h', they made an error, or they added unrecognized command line arguments.
 		 * In all cases, print the help, and exit.
 		 *
@@ -666,23 +708,27 @@ int openttd_main(int argc, char *argv[])
 	DeterminePaths(argv[0], only_local_path);
 	TarScanner::DoScan(TarScanner::BASESET);
 
-	if (dedicated) Debug(net, 3, "Starting dedicated server, version {}", _openttd_revision);
-	if (_dedicated_forks && !dedicated) _dedicated_forks = false;
+	if (dedicated)
+		Debug(net, 3, "Starting dedicated server, version {}", _openttd_revision);
+	if (_dedicated_forks && !dedicated)
+		_dedicated_forks = false;
 
 #if defined(UNIX)
 	/* We must fork here, or we'll end up without some resources we need (like sockets) */
-	if (_dedicated_forks) DedicatedFork();
+	if (_dedicated_forks)
+		DedicatedFork();
 #endif
 
 	LoadFromConfig(true);
 
-	if (resolution.width != 0) _cur_resolution = resolution;
+	if (resolution.width != 0)
+		_cur_resolution = resolution;
 
 	/* Limit width times height times bytes per pixel to fit a 32 bit
 	 * integer, This way all internal drawing routines work correctly.
 	 * A resolution that has one component as 0 is treated as a marker to
 	 * auto-detect a good window size. */
-	_cur_resolution.width  = std::min(_cur_resolution.width, UINT16_MAX / 2u);
+	_cur_resolution.width = std::min(_cur_resolution.width, UINT16_MAX / 2u);
 	_cur_resolution.height = std::min(_cur_resolution.height, UINT16_MAX / 2u);
 
 	/* Assume the cursor starts within the game as not all video drivers
@@ -701,9 +747,12 @@ int openttd_main(int argc, char *argv[])
 	InitWindowSystem();
 
 	BaseGraphics::FindSets();
-	if (graphics_set.empty() && !BaseGraphics::ini_set.empty()) graphics_set = BaseGraphics::ini_set;
-	if (!BaseGraphics::SetSet(graphics_set)) {
-		if (!graphics_set.empty()) {
+	if (graphics_set.empty() && !BaseGraphics::ini_set.empty())
+		graphics_set = BaseGraphics::ini_set;
+	if (!BaseGraphics::SetSet(graphics_set))
+	{
+		if (!graphics_set.empty())
+		{
 			BaseGraphics::SetSet({});
 
 			ErrorMessageData msg(STR_CONFIG_ERROR, STR_CONFIG_ERROR_INVALID_BASE_GRAPHICS_NOT_FOUND);
@@ -716,7 +765,8 @@ int openttd_main(int argc, char *argv[])
 	GfxInitPalettes();
 
 	Debug(misc, 1, "Loading blitter...");
-	if (blitter.empty() && !_ini_blitter.empty()) blitter = _ini_blitter;
+	if (blitter.empty() && !_ini_blitter.empty())
+		blitter = _ini_blitter;
 	_blitter_autodetected = blitter.empty();
 	/* Activate the initial blitter.
 	 * This is only some initial guess, after NewGRFs have been loaded SwitchNewGRFBlitter may switch to a different one.
@@ -725,16 +775,17 @@ int openttd_main(int argc, char *argv[])
 	 *  - Use 8bpp blitter otherwise.
 	 */
 	if (!_blitter_autodetected ||
-			(_support8bpp != S8BPP_NONE && (BaseGraphics::GetUsedSet() == nullptr || BaseGraphics::GetUsedSet()->blitter == BLT_8BPP)) ||
-			BlitterFactory::SelectBlitter("32bpp-anim") == nullptr) {
-		if (BlitterFactory::SelectBlitter(blitter) == nullptr) {
-			blitter.empty() ?
-				usererror("Failed to autoprobe blitter") :
-				usererror("Failed to select requested blitter '%s'; does it exist?", blitter.c_str());
+		(_support8bpp != S8BPP_NONE && (BaseGraphics::GetUsedSet() == nullptr || BaseGraphics::GetUsedSet()->blitter == BLT_8BPP)) ||
+		BlitterFactory::SelectBlitter("32bpp-anim") == nullptr)
+	{
+		if (BlitterFactory::SelectBlitter(blitter) == nullptr)
+		{
+			blitter.empty() ? usererror("Failed to autoprobe blitter") : usererror("Failed to select requested blitter '%s'; does it exist?", blitter.c_str());
 		}
 	}
 
-	if (videodriver.empty() && !_ini_videodriver.empty()) videodriver = _ini_videodriver;
+	if (videodriver.empty() && !_ini_videodriver.empty())
+		videodriver = _ini_videodriver;
 	DriverFactoryBase::SelectDriver(videodriver, Driver::DT_VIDEO);
 
 	InitializeSpriteSorter();
@@ -745,11 +796,13 @@ int openttd_main(int argc, char *argv[])
 
 	NetworkStartUp(); // initialize network-core
 
-	if (debuglog_conn != nullptr && _network_available) {
+	if (debuglog_conn != nullptr && _network_available)
+	{
 		NetworkStartDebugLog(debuglog_conn);
 	}
 
-	if (!HandleBootstrap()) {
+	if (!HandleBootstrap())
+	{
 		ShutdownGame();
 		return ret;
 	}
@@ -760,11 +813,16 @@ int openttd_main(int argc, char *argv[])
 	InitializeScreenshotFormats();
 
 	BaseSounds::FindSets();
-	if (sounds_set.empty() && !BaseSounds::ini_set.empty()) sounds_set = BaseSounds::ini_set;
-	if (!BaseSounds::SetSet(sounds_set)) {
-		if (sounds_set.empty() || !BaseSounds::SetSet({})) {
+	if (sounds_set.empty() && !BaseSounds::ini_set.empty())
+		sounds_set = BaseSounds::ini_set;
+	if (!BaseSounds::SetSet(sounds_set))
+	{
+		if (sounds_set.empty() || !BaseSounds::SetSet({}))
+		{
 			usererror("Failed to find a sounds set. Please acquire a sounds set for OpenTTD. See section 1.4 of README.md.");
-		} else {
+		}
+		else
+		{
 			ErrorMessageData msg(STR_CONFIG_ERROR, STR_CONFIG_ERROR_INVALID_BASE_SOUNDS_NOT_FOUND);
 			msg.SetDParamStr(0, sounds_set);
 			ScheduleErrorMessage(msg);
@@ -772,21 +830,28 @@ int openttd_main(int argc, char *argv[])
 	}
 
 	BaseMusic::FindSets();
-	if (music_set.empty() && !BaseMusic::ini_set.empty()) music_set = BaseMusic::ini_set;
-	if (!BaseMusic::SetSet(music_set)) {
-		if (music_set.empty() || !BaseMusic::SetSet({})) {
+	if (music_set.empty() && !BaseMusic::ini_set.empty())
+		music_set = BaseMusic::ini_set;
+	if (!BaseMusic::SetSet(music_set))
+	{
+		if (music_set.empty() || !BaseMusic::SetSet({}))
+		{
 			usererror("Failed to find a music set. Please acquire a music set for OpenTTD. See section 1.4 of README.md.");
-		} else {
+		}
+		else
+		{
 			ErrorMessageData msg(STR_CONFIG_ERROR, STR_CONFIG_ERROR_INVALID_BASE_MUSIC_NOT_FOUND);
 			msg.SetDParamStr(0, music_set);
 			ScheduleErrorMessage(msg);
 		}
 	}
 
-	if (sounddriver.empty() && !_ini_sounddriver.empty()) sounddriver = _ini_sounddriver;
+	if (sounddriver.empty() && !_ini_sounddriver.empty())
+		sounddriver = _ini_sounddriver;
 	DriverFactoryBase::SelectDriver(sounddriver, Driver::DT_SOUND);
 
-	if (musicdriver.empty() && !_ini_musicdriver.empty()) musicdriver = _ini_musicdriver;
+	if (musicdriver.empty() && !_ini_musicdriver.empty())
+		musicdriver = _ini_musicdriver;
 	DriverFactoryBase::SelectDriver(musicdriver, Driver::DT_MUSIC);
 
 	GenerateWorld(GWM_EMPTY, 64, 64); // Make the viewport initialization happy
@@ -802,7 +867,8 @@ int openttd_main(int argc, char *argv[])
 	WaitTillSaved();
 
 	/* only save config if we have to */
-	if (_save_config) {
+	if (_save_config)
+	{
 		SaveToConfig();
 		SaveHotkeysToConfig();
 		WindowDesc::SaveToConfig();
@@ -816,12 +882,17 @@ int openttd_main(int argc, char *argv[])
 
 void HandleExitGameRequest()
 {
-	if (_game_mode == GM_MENU || _game_mode == GM_BOOTSTRAP) { // do not ask to quit on the main screen
+	if (_game_mode == GM_MENU || _game_mode == GM_BOOTSTRAP)
+	{ // do not ask to quit on the main screen
 		_exit_game = true;
-	} else if (_settings_client.gui.autosave_on_exit) {
+	}
+	else if (_settings_client.gui.autosave_on_exit)
+	{
 		DoExitSave();
 		_exit_game = true;
-	} else {
+	}
+	else
+	{
 		AskExitGame();
 	}
 }
@@ -847,9 +918,11 @@ static void MakeNewGameDone()
 	SettingsDisableElrail(_settings_game.vehicle.disable_elrails);
 
 	/* In a dedicated server, the server does not play */
-	if (!VideoDriver::GetInstance()->HasGUI()) {
+	if (!VideoDriver::GetInstance()->HasGUI())
+	{
 		OnStartGame(true);
-		if (_settings_client.gui.pause_on_newgame) DoCommandP(0, PM_PAUSED_NORMAL, 1, CMD_PAUSE);
+		if (_settings_client.gui.pause_on_newgame)
+			DoCommandP(0, PM_PAUSED_NORMAL, 1, CMD_PAUSE);
 		return;
 	}
 
@@ -861,7 +934,8 @@ static void MakeNewGameDone()
 
 	/* Overwrite color from settings if needed
 	 * COLOUR_END corresponds to Random colour */
-	if (_settings_client.gui.starting_colour != COLOUR_END) {
+	if (_settings_client.gui.starting_colour != COLOUR_END)
+	{
 		c->colour = _settings_client.gui.starting_colour;
 		ResetCompanyLivery(c);
 		_company_colours[c->index] = (Colours)c->colour;
@@ -874,11 +948,13 @@ static void MakeNewGameDone()
 
 	/* We are the server, we start a new company (not dedicated),
 	 * so set the default password *if* needed. */
-	if (_network_server && !_settings_client.network.default_company_pass.empty()) {
+	if (_network_server && !_settings_client.network.default_company_pass.empty())
+	{
 		NetworkChangeCompanyPassword(_local_company, _settings_client.network.default_company_pass);
 	}
 
-	if (_settings_client.gui.pause_on_newgame) DoCommandP(0, PM_PAUSED_NORMAL, 1, CMD_PAUSE);
+	if (_settings_client.gui.pause_on_newgame)
+		DoCommandP(0, PM_PAUSED_NORMAL, 1, CMD_PAUSE);
 
 	CheckEngines();
 	CheckIndustries();
@@ -888,7 +964,8 @@ static void MakeNewGameDone()
 static void MakeNewGame(bool from_heightmap, bool reset_settings)
 {
 	_game_mode = GM_NORMAL;
-	if (!from_heightmap) {
+	if (!from_heightmap)
+	{
 		/* "reload" command needs to know what mode we were in. */
 		_file_to_saveload.SetMode(SLO_INVALID, FT_INVALID, DFT_INVALID);
 	}
@@ -934,64 +1011,83 @@ bool SafeLoad(const std::string &filename, SaveLoadOperation fop, DetailedFileTy
 
 	_game_mode = newgm;
 
-	switch (lf == nullptr ? SaveOrLoad(filename, fop, dft, subdir) : LoadWithFilter(lf)) {
-		case SL_OK: return true;
+	switch (lf == nullptr ? SaveOrLoad(filename, fop, dft, subdir) : LoadWithFilter(lf))
+	{
+	case SL_OK:
+		return true;
 
-		case SL_REINIT:
-			if (_network_dedicated) {
-				/*
+	case SL_REINIT:
+		if (_network_dedicated)
+		{
+			/*
 				 * We need to reinit a network map...
 				 * We can't simply load the intro game here as that game has many
 				 * special cases which make clients desync immediately. So we fall
 				 * back to just generating a new game with the current settings.
 				 */
-				Debug(net, 0, "Loading game failed, so a new (random) game will be started");
-				MakeNewGame(false, true);
-				return false;
-			}
-			if (_network_server) {
-				/* We can't load the intro game as server, so disconnect first. */
-				NetworkDisconnect();
-			}
-
-			switch (ogm) {
-				default:
-				case GM_MENU:   LoadIntroGame();      break;
-				case GM_EDITOR: MakeNewEditorWorld(); break;
-			}
+			Debug(net, 0, "Loading game failed, so a new (random) game will be started");
+			MakeNewGame(false, true);
 			return false;
+		}
+		if (_network_server)
+		{
+			/* We can't load the intro game as server, so disconnect first. */
+			NetworkDisconnect();
+		}
 
+		switch (ogm)
+		{
 		default:
-			_game_mode = ogm;
-			return false;
+		case GM_MENU:
+			LoadIntroGame();
+			break;
+		case GM_EDITOR:
+			MakeNewEditorWorld();
+			break;
+		}
+		return false;
+
+	default:
+		_game_mode = ogm;
+		return false;
 	}
 }
 
 void SwitchToMode(SwitchMode new_mode)
 {
 	/* If we are saving something, the network stays in its current state */
-	if (new_mode != SM_SAVE_GAME) {
+	if (new_mode != SM_SAVE_GAME)
+	{
 		/* If the network is active, make it not-active */
-		if (_networking) {
-			if (_network_server && (new_mode == SM_LOAD_GAME || new_mode == SM_NEWGAME || new_mode == SM_RESTARTGAME)) {
+		if (_networking)
+		{
+			if (_network_server && (new_mode == SM_LOAD_GAME || new_mode == SM_NEWGAME || new_mode == SM_RESTARTGAME))
+			{
 				NetworkReboot();
-			} else {
+			}
+			else
+			{
 				NetworkDisconnect();
 			}
 		}
 
 		/* If we are a server, we restart the server */
-		if (_is_network_server) {
+		if (_is_network_server)
+		{
 			/* But not if we are going to the menu */
-			if (new_mode != SM_MENU) {
+			if (new_mode != SM_MENU)
+			{
 				/* check if we should reload the config */
-				if (_settings_client.network.reload_cfg) {
+				if (_settings_client.network.reload_cfg)
+				{
 					LoadFromConfig();
 					MakeNewgameSettingsLive();
 					ResetGRFConfig(false);
 				}
 				NetworkServerStart();
-			} else {
+			}
+			else
+			{
 				/* This client no longer wants to be a network-server */
 				_is_network_server = false;
 			}
@@ -999,117 +1095,135 @@ void SwitchToMode(SwitchMode new_mode)
 	}
 
 	/* Make sure all AI controllers are gone at quitting game */
-	if (new_mode != SM_SAVE_GAME) AI::KillAll();
+	if (new_mode != SM_SAVE_GAME)
+		AI::KillAll();
 
-	switch (new_mode) {
-		case SM_EDITOR: // Switch to scenario editor
-			MakeNewEditorWorld();
+	switch (new_mode)
+	{
+	case SM_EDITOR: // Switch to scenario editor
+		MakeNewEditorWorld();
+		break;
+
+	case SM_RELOADGAME: // Reload with what-ever started the game
+		if (_file_to_saveload.abstract_ftype == FT_SAVEGAME || _file_to_saveload.abstract_ftype == FT_SCENARIO)
+		{
+			/* Reload current savegame/scenario */
+			_switch_mode = _game_mode == GM_EDITOR ? SM_LOAD_SCENARIO : SM_LOAD_GAME;
+			SwitchToMode(_switch_mode);
 			break;
-
-		case SM_RELOADGAME: // Reload with what-ever started the game
-			if (_file_to_saveload.abstract_ftype == FT_SAVEGAME || _file_to_saveload.abstract_ftype == FT_SCENARIO) {
-				/* Reload current savegame/scenario */
-				_switch_mode = _game_mode == GM_EDITOR ? SM_LOAD_SCENARIO : SM_LOAD_GAME;
-				SwitchToMode(_switch_mode);
-				break;
-			} else if (_file_to_saveload.abstract_ftype == FT_HEIGHTMAP) {
-				/* Restart current heightmap */
-				_switch_mode = _game_mode == GM_EDITOR ? SM_LOAD_HEIGHTMAP : SM_RESTART_HEIGHTMAP;
-				SwitchToMode(_switch_mode);
-				break;
-			}
-
-			MakeNewGame(false, new_mode == SM_NEWGAME);
-			break;
-
-		case SM_RESTARTGAME: // Restart --> 'Random game' with current settings
-		case SM_NEWGAME: // New Game --> 'Random game'
-			MakeNewGame(false, new_mode == SM_NEWGAME);
-			break;
-
-		case SM_LOAD_GAME: { // Load game, Play Scenario
-			ResetGRFConfig(true);
-			ResetWindowSystem();
-
-			if (!SafeLoad(_file_to_saveload.name, _file_to_saveload.file_op, _file_to_saveload.detail_ftype, GM_NORMAL, NO_DIRECTORY)) {
-				SetDParamStr(0, GetSaveLoadErrorString());
-				ShowErrorMessage(STR_JUST_RAW_STRING, INVALID_STRING_ID, WL_ERROR);
-			} else {
-				if (_file_to_saveload.abstract_ftype == FT_SCENARIO) {
-					/* Reset engine pool to simplify changing engine NewGRFs in scenario editor. */
-					EngineOverrideManager::ResetToCurrentNewGRFConfig();
-				}
-				OnStartGame(_network_dedicated);
-				/* Decrease pause counter (was increased from opening load dialog) */
-				DoCommandP(0, PM_PAUSED_SAVELOAD, 0, CMD_PAUSE);
-			}
+		}
+		else if (_file_to_saveload.abstract_ftype == FT_HEIGHTMAP)
+		{
+			/* Restart current heightmap */
+			_switch_mode = _game_mode == GM_EDITOR ? SM_LOAD_HEIGHTMAP : SM_RESTART_HEIGHTMAP;
+			SwitchToMode(_switch_mode);
 			break;
 		}
 
-		case SM_RESTART_HEIGHTMAP: // Load a heightmap and start a new game from it with current settings
-		case SM_START_HEIGHTMAP: // Load a heightmap and start a new game from it
-			MakeNewGame(true, new_mode == SM_START_HEIGHTMAP);
-			break;
+		MakeNewGame(false, new_mode == SM_NEWGAME);
+		break;
 
-		case SM_LOAD_HEIGHTMAP: // Load heightmap from scenario editor
+	case SM_RESTARTGAME: // Restart --> 'Random game' with current settings
+	case SM_NEWGAME:	 // New Game --> 'Random game'
+		MakeNewGame(false, new_mode == SM_NEWGAME);
+		break;
+
+	case SM_LOAD_GAME:
+	{ // Load game, Play Scenario
+		ResetGRFConfig(true);
+		ResetWindowSystem();
+
+		if (!SafeLoad(_file_to_saveload.name, _file_to_saveload.file_op, _file_to_saveload.detail_ftype, GM_NORMAL, NO_DIRECTORY))
+		{
+			SetDParamStr(0, GetSaveLoadErrorString());
+			ShowErrorMessage(STR_JUST_RAW_STRING, INVALID_STRING_ID, WL_ERROR);
+		}
+		else
+		{
+			if (_file_to_saveload.abstract_ftype == FT_SCENARIO)
+			{
+				/* Reset engine pool to simplify changing engine NewGRFs in scenario editor. */
+				EngineOverrideManager::ResetToCurrentNewGRFConfig();
+			}
+			OnStartGame(_network_dedicated);
+			/* Decrease pause counter (was increased from opening load dialog) */
+			DoCommandP(0, PM_PAUSED_SAVELOAD, 0, CMD_PAUSE);
+		}
+		break;
+	}
+
+	case SM_RESTART_HEIGHTMAP: // Load a heightmap and start a new game from it with current settings
+	case SM_START_HEIGHTMAP:   // Load a heightmap and start a new game from it
+		MakeNewGame(true, new_mode == SM_START_HEIGHTMAP);
+		break;
+
+	case SM_LOAD_HEIGHTMAP: // Load heightmap from scenario editor
+		SetLocalCompany(OWNER_NONE);
+
+		GenerateWorld(GWM_HEIGHTMAP, 1 << _settings_game.game_creation.map_x, 1 << _settings_game.game_creation.map_y);
+		MarkWholeScreenDirty();
+		break;
+
+	case SM_LOAD_SCENARIO:
+	{ // Load scenario from scenario editor
+		if (SafeLoad(_file_to_saveload.name, _file_to_saveload.file_op, _file_to_saveload.detail_ftype, GM_EDITOR, NO_DIRECTORY))
+		{
 			SetLocalCompany(OWNER_NONE);
-
-			GenerateWorld(GWM_HEIGHTMAP, 1 << _settings_game.game_creation.map_x, 1 << _settings_game.game_creation.map_y);
-			MarkWholeScreenDirty();
-			break;
-
-		case SM_LOAD_SCENARIO: { // Load scenario from scenario editor
-			if (SafeLoad(_file_to_saveload.name, _file_to_saveload.file_op, _file_to_saveload.detail_ftype, GM_EDITOR, NO_DIRECTORY)) {
-				SetLocalCompany(OWNER_NONE);
-				_settings_newgame.game_creation.starting_year = _cur_year;
-				/* Cancel the saveload pausing */
-				DoCommandP(0, PM_PAUSED_SAVELOAD, 0, CMD_PAUSE);
-			} else {
-				SetDParamStr(0, GetSaveLoadErrorString());
-				ShowErrorMessage(STR_JUST_RAW_STRING, INVALID_STRING_ID, WL_ERROR);
-			}
-			break;
+			_settings_newgame.game_creation.starting_year = _cur_year;
+			/* Cancel the saveload pausing */
+			DoCommandP(0, PM_PAUSED_SAVELOAD, 0, CMD_PAUSE);
 		}
+		else
+		{
+			SetDParamStr(0, GetSaveLoadErrorString());
+			ShowErrorMessage(STR_JUST_RAW_STRING, INVALID_STRING_ID, WL_ERROR);
+		}
+		break;
+	}
 
-		case SM_JOIN_GAME: // Join a multiplayer game
-			LoadIntroGame();
-			NetworkClientJoinGame();
-			break;
+	case SM_JOIN_GAME: // Join a multiplayer game
+		LoadIntroGame();
+		NetworkClientJoinGame();
+		break;
 
-		case SM_MENU: // Switch to game intro menu
-			LoadIntroGame();
-			if (BaseSounds::ini_set.empty() && BaseSounds::GetUsedSet()->fallback && SoundDriver::GetInstance()->HasOutput()) {
-				ShowErrorMessage(STR_WARNING_FALLBACK_SOUNDSET, INVALID_STRING_ID, WL_CRITICAL);
-				BaseSounds::ini_set = BaseSounds::GetUsedSet()->name;
-			}
-			break;
+	case SM_MENU: // Switch to game intro menu
+		LoadIntroGame();
+		if (BaseSounds::ini_set.empty() && BaseSounds::GetUsedSet()->fallback && SoundDriver::GetInstance()->HasOutput())
+		{
+			ShowErrorMessage(STR_WARNING_FALLBACK_SOUNDSET, INVALID_STRING_ID, WL_CRITICAL);
+			BaseSounds::ini_set = BaseSounds::GetUsedSet()->name;
+		}
+		break;
 
-		case SM_SAVE_GAME: // Save game.
-			/* Make network saved games on pause compatible to singleplayer mode */
-			if (SaveOrLoad(_file_to_saveload.name, SLO_SAVE, DFT_GAME_FILE, NO_DIRECTORY) != SL_OK) {
-				SetDParamStr(0, GetSaveLoadErrorString());
-				ShowErrorMessage(STR_JUST_RAW_STRING, INVALID_STRING_ID, WL_ERROR);
-			} else {
-				CloseWindowById(WC_SAVELOAD, 0);
-			}
-			break;
-
-		case SM_SAVE_HEIGHTMAP: // Save heightmap.
-			MakeHeightmapScreenshot(_file_to_saveload.name.c_str());
+	case SM_SAVE_GAME: // Save game.
+		/* Make network saved games on pause compatible to singleplayer mode */
+		if (SaveOrLoad(_file_to_saveload.name, SLO_SAVE, DFT_GAME_FILE, NO_DIRECTORY) != SL_OK)
+		{
+			SetDParamStr(0, GetSaveLoadErrorString());
+			ShowErrorMessage(STR_JUST_RAW_STRING, INVALID_STRING_ID, WL_ERROR);
+		}
+		else
+		{
 			CloseWindowById(WC_SAVELOAD, 0);
-			break;
+		}
+		break;
 
-		case SM_GENRANDLAND: // Generate random land within scenario editor
-			SetLocalCompany(OWNER_NONE);
-			GenerateWorld(GWM_RANDOM, 1 << _settings_game.game_creation.map_x, 1 << _settings_game.game_creation.map_y);
-			/* XXX: set date */
-			MarkWholeScreenDirty();
-			break;
+	case SM_SAVE_HEIGHTMAP: // Save heightmap.
+		MakeHeightmapScreenshot(_file_to_saveload.name.c_str());
+		CloseWindowById(WC_SAVELOAD, 0);
+		break;
 
-		default: NOT_REACHED();
+	case SM_GENRANDLAND: // Generate random land within scenario editor
+		SetLocalCompany(OWNER_NONE);
+		GenerateWorld(GWM_RANDOM, 1 << _settings_game.game_creation.map_x, 1 << _settings_game.game_creation.map_y);
+		/* XXX: set date */
+		MarkWholeScreenDirty();
+		break;
+
+	default:
+		NOT_REACHED();
 	}
 }
-
 
 /**
  * Check the validity of some of the caches.
@@ -1121,11 +1235,13 @@ static void CheckCaches()
 {
 	/* Return here so it is easy to add checks that are run
 	 * always to aid testing of caches. */
-	if (_debug_desync_level <= 1) return;
+	if (_debug_desync_level <= 1)
+		return;
 
 	/* Check the town caches. */
 	std::vector<TownCache> old_town_caches;
-	for (const Town *t : Town::Iterate()) {
+	for (const Town *t : Town::Iterate())
+	{
 		old_town_caches.push_back(t->cache);
 	}
 
@@ -1134,8 +1250,10 @@ static void CheckCaches()
 	RebuildSubsidisedSourceAndDestinationCache();
 
 	uint i = 0;
-	for (Town *t : Town::Iterate()) {
-		if (MemCmpT(old_town_caches.data() + i, &t->cache) != 0) {
+	for (Town *t : Town::Iterate())
+	{
+		if (MemCmpT(old_town_caches.data() + i, &t->cache) != 0)
+		{
 			Debug(desync, 2, "town cache mismatch: town {}", t->index);
 		}
 		i++;
@@ -1143,92 +1261,119 @@ static void CheckCaches()
 
 	/* Check company infrastructure cache. */
 	std::vector<CompanyInfrastructure> old_infrastructure;
-	for (const Company *c : Company::Iterate()) old_infrastructure.push_back(c->infrastructure);
+	for (const Company *c : Company::Iterate())
+		old_infrastructure.push_back(c->infrastructure);
 
 	extern void AfterLoadCompanyStats();
 	AfterLoadCompanyStats();
 
 	i = 0;
-	for (const Company *c : Company::Iterate()) {
-		if (MemCmpT(old_infrastructure.data() + i, &c->infrastructure) != 0) {
+	for (const Company *c : Company::Iterate())
+	{
+		if (MemCmpT(old_infrastructure.data() + i, &c->infrastructure) != 0)
+		{
 			Debug(desync, 2, "infrastructure cache mismatch: company {}", c->index);
 		}
 		i++;
 	}
 
 	/* Strict checking of the road stop cache entries */
-	for (const RoadStop *rs : RoadStop::Iterate()) {
-		if (IsStandardRoadStopTile(rs->xy)) continue;
+	for (const RoadStop *rs : RoadStop::Iterate())
+	{
+		if (IsStandardRoadStopTile(rs->xy))
+			continue;
 
 		assert(rs->GetEntry(DIAGDIR_NE) != rs->GetEntry(DIAGDIR_NW));
 		rs->GetEntry(DIAGDIR_NE)->CheckIntegrity(rs);
 		rs->GetEntry(DIAGDIR_NW)->CheckIntegrity(rs);
 	}
 
-	for (Vehicle *v : Vehicle::Iterate()) {
+	for (Vehicle *v : Vehicle::Iterate())
+	{
 		extern void FillNewGRFVehicleCache(const Vehicle *v);
-		if (v != v->First() || v->vehstatus & VS_CRASHED || !v->IsPrimaryVehicle()) continue;
+		if (v != v->First() || v->vehstatus & VS_CRASHED || !v->IsPrimaryVehicle())
+			continue;
 
 		uint length = 0;
-		for (const Vehicle *u = v; u != nullptr; u = u->Next()) length++;
+		for (const Vehicle *u = v; u != nullptr; u = u->Next())
+			length++;
 
-		NewGRFCache        *grf_cache = CallocT<NewGRFCache>(length);
-		VehicleCache       *veh_cache = CallocT<VehicleCache>(length);
+		NewGRFCache *grf_cache = CallocT<NewGRFCache>(length);
+		VehicleCache *veh_cache = CallocT<VehicleCache>(length);
 		GroundVehicleCache *gro_cache = CallocT<GroundVehicleCache>(length);
-		TrainCache         *tra_cache = CallocT<TrainCache>(length);
+		TrainCache *tra_cache = CallocT<TrainCache>(length);
 
 		length = 0;
-		for (const Vehicle *u = v; u != nullptr; u = u->Next()) {
+		for (const Vehicle *u = v; u != nullptr; u = u->Next())
+		{
 			FillNewGRFVehicleCache(u);
 			grf_cache[length] = u->grf_cache;
 			veh_cache[length] = u->vcache;
-			switch (u->type) {
-				case VEH_TRAIN:
-					gro_cache[length] = Train::From(u)->gcache;
-					tra_cache[length] = Train::From(u)->tcache;
-					break;
-				case VEH_ROAD:
-					gro_cache[length] = RoadVehicle::From(u)->gcache;
-					break;
-				default:
-					break;
+			switch (u->type)
+			{
+			case VEH_TRAIN:
+				gro_cache[length] = Train::From(u)->gcache;
+				tra_cache[length] = Train::From(u)->tcache;
+				break;
+			case VEH_ROAD:
+				gro_cache[length] = RoadVehicle::From(u)->gcache;
+				break;
+			default:
+				break;
 			}
 			length++;
 		}
 
-		switch (v->type) {
-			case VEH_TRAIN:    Train::From(v)->ConsistChanged(CCF_TRACK); break;
-			case VEH_ROAD:     RoadVehUpdateCache(RoadVehicle::From(v)); break;
-			case VEH_AIRCRAFT: UpdateAircraftCache(Aircraft::From(v));   break;
-			case VEH_SHIP:     Ship::From(v)->UpdateCache();             break;
-			default: break;
+		switch (v->type)
+		{
+		case VEH_TRAIN:
+			Train::From(v)->ConsistChanged(CCF_TRACK);
+			break;
+		case VEH_ROAD:
+			RoadVehUpdateCache(RoadVehicle::From(v));
+			break;
+		case VEH_AIRCRAFT:
+			UpdateAircraftCache(Aircraft::From(v));
+			break;
+		case VEH_SHIP:
+			Ship::From(v)->UpdateCache();
+			break;
+		default:
+			break;
 		}
 
 		length = 0;
-		for (const Vehicle *u = v; u != nullptr; u = u->Next()) {
+		for (const Vehicle *u = v; u != nullptr; u = u->Next())
+		{
 			FillNewGRFVehicleCache(u);
-			if (memcmp(&grf_cache[length], &u->grf_cache, sizeof(NewGRFCache)) != 0) {
+			if (memcmp(&grf_cache[length], &u->grf_cache, sizeof(NewGRFCache)) != 0)
+			{
 				Debug(desync, 2, "newgrf cache mismatch: type {}, vehicle {}, company {}, unit number {}, wagon {}", v->type, v->index, v->owner, v->unitnumber, length);
 			}
-			if (memcmp(&veh_cache[length], &u->vcache, sizeof(VehicleCache)) != 0) {
+			if (memcmp(&veh_cache[length], &u->vcache, sizeof(VehicleCache)) != 0)
+			{
 				Debug(desync, 2, "vehicle cache mismatch: type {}, vehicle {}, company {}, unit number {}, wagon {}", v->type, v->index, v->owner, v->unitnumber, length);
 			}
-			switch (u->type) {
-				case VEH_TRAIN:
-					if (memcmp(&gro_cache[length], &Train::From(u)->gcache, sizeof(GroundVehicleCache)) != 0) {
-						Debug(desync, 2, "train ground vehicle cache mismatch: vehicle {}, company {}, unit number {}, wagon {}", v->index, v->owner, v->unitnumber, length);
-					}
-					if (memcmp(&tra_cache[length], &Train::From(u)->tcache, sizeof(TrainCache)) != 0) {
-						Debug(desync, 2, "train cache mismatch: vehicle {}, company {}, unit number {}, wagon {}", v->index, v->owner, v->unitnumber, length);
-					}
-					break;
-				case VEH_ROAD:
-					if (memcmp(&gro_cache[length], &RoadVehicle::From(u)->gcache, sizeof(GroundVehicleCache)) != 0) {
-						Debug(desync, 2, "road vehicle ground vehicle cache mismatch: vehicle {}, company {}, unit number {}, wagon {}", v->index, v->owner, v->unitnumber, length);
-					}
-					break;
-				default:
-					break;
+			switch (u->type)
+			{
+			case VEH_TRAIN:
+				if (memcmp(&gro_cache[length], &Train::From(u)->gcache, sizeof(GroundVehicleCache)) != 0)
+				{
+					Debug(desync, 2, "train ground vehicle cache mismatch: vehicle {}, company {}, unit number {}, wagon {}", v->index, v->owner, v->unitnumber, length);
+				}
+				if (memcmp(&tra_cache[length], &Train::From(u)->tcache, sizeof(TrainCache)) != 0)
+				{
+					Debug(desync, 2, "train cache mismatch: vehicle {}, company {}, unit number {}, wagon {}", v->index, v->owner, v->unitnumber, length);
+				}
+				break;
+			case VEH_ROAD:
+				if (memcmp(&gro_cache[length], &RoadVehicle::From(u)->gcache, sizeof(GroundVehicleCache)) != 0)
+				{
+					Debug(desync, 2, "road vehicle ground vehicle cache mismatch: vehicle {}, company {}, unit number {}, wagon {}", v->index, v->owner, v->unitnumber, length);
+				}
+				break;
+			default:
+				break;
 			}
 			length++;
 		}
@@ -1240,7 +1385,8 @@ static void CheckCaches()
 	}
 
 	/* Check whether the caches are still valid */
-	for (Vehicle *v : Vehicle::Iterate()) {
+	for (Vehicle *v : Vehicle::Iterate())
+	{
 		byte buff[sizeof(VehicleCargoList)];
 		memcpy(buff, &v->cargo, sizeof(VehicleCargoList));
 		v->cargo.InvalidateCache();
@@ -1249,13 +1395,17 @@ static void CheckCaches()
 
 	/* Backup stations_near */
 	std::vector<StationList> old_town_stations_near;
-	for (Town *t : Town::Iterate()) old_town_stations_near.push_back(t->stations_near);
+	for (Town *t : Town::Iterate())
+		old_town_stations_near.push_back(t->stations_near);
 
 	std::vector<StationList> old_industry_stations_near;
-	for (Industry *ind : Industry::Iterate())  old_industry_stations_near.push_back(ind->stations_near);
+	for (Industry *ind : Industry::Iterate())
+		old_industry_stations_near.push_back(ind->stations_near);
 
-	for (Station *st : Station::Iterate()) {
-		for (CargoID c = 0; c < NUM_CARGO; c++) {
+	for (Station *st : Station::Iterate())
+	{
+		for (CargoID c = 0; c < NUM_CARGO; c++)
+		{
 			byte buff[sizeof(StationCargoList)];
 			memcpy(buff, &st->goods[c].cargo, sizeof(StationCargoList));
 			st->goods[c].cargo.InvalidateCache();
@@ -1265,16 +1415,20 @@ static void CheckCaches()
 		/* Check docking tiles */
 		TileArea ta;
 		std::map<TileIndex, bool> docking_tiles;
-		for (TileIndex tile : st->docking_station) {
+		for (TileIndex tile : st->docking_station)
+		{
 			ta.Add(tile);
 			docking_tiles[tile] = IsDockingTile(tile);
 		}
 		UpdateStationDockingTiles(st);
-		if (ta.tile != st->docking_station.tile || ta.w != st->docking_station.w || ta.h != st->docking_station.h) {
+		if (ta.tile != st->docking_station.tile || ta.w != st->docking_station.w || ta.h != st->docking_station.h)
+		{
 			Debug(desync, 2, "station docking mismatch: station {}, company {}", st->index, st->owner);
 		}
-		for (TileIndex tile : ta) {
-			if (docking_tiles[tile] != IsDockingTile(tile)) {
+		for (TileIndex tile : ta)
+		{
+			if (docking_tiles[tile] != IsDockingTile(tile))
+			{
 				Debug(desync, 2, "docking tile mismatch: tile {}", tile);
 			}
 		}
@@ -1282,22 +1436,27 @@ static void CheckCaches()
 		/* Check industries_near */
 		IndustryList industries_near = st->industries_near;
 		st->RecomputeCatchment();
-		if (st->industries_near != industries_near) {
+		if (st->industries_near != industries_near)
+		{
 			Debug(desync, 2, "station industries near mismatch: station {}", st->index);
 		}
 	}
 
 	/* Check stations_near */
 	i = 0;
-	for (Town *t : Town::Iterate()) {
-		if (t->stations_near != old_town_stations_near[i]) {
+	for (Town *t : Town::Iterate())
+	{
+		if (t->stations_near != old_town_stations_near[i])
+		{
 			Debug(desync, 2, "town stations near mismatch: town {}", t->index);
 		}
 		i++;
 	}
 	i = 0;
-	for (Industry *ind : Industry::Iterate()) {
-		if (ind->stations_near != old_industry_stations_near[i]) {
+	for (Industry *ind : Industry::Iterate())
+	{
+		if (ind->stations_near != old_industry_stations_near[i])
+		{
 			Debug(desync, 2, "industry stations near mismatch: industry {}", ind->index);
 		}
 		i++;
@@ -1311,12 +1470,14 @@ static void CheckCaches()
  */
 void StateGameLoop()
 {
-	if (!_networking || _network_server) {
+	if (!_networking || _network_server)
+	{
 		StateGameLoop_LinkGraphPauseControl();
 	}
 
 	/* Don't execute the state loop during pause or when modal windows are open. */
-	if (_pause_mode != PM_UNPAUSED || HasModalProgress()) {
+	if (_pause_mode != PM_UNPAUSED || HasModalProgress())
+	{
 		PerformanceMeasurer::Paused(PFE_GAMELOOP);
 		PerformanceMeasurer::Paused(PFE_GL_ECONOMY);
 		PerformanceMeasurer::Paused(PFE_GL_TRAINS);
@@ -1325,7 +1486,8 @@ void StateGameLoop()
 		PerformanceMeasurer::Paused(PFE_GL_AIRCRAFT);
 		PerformanceMeasurer::Paused(PFE_GL_LANDSCAPE);
 
-		if (!HasModalProgress()) UpdateLandscapingLimits();
+		if (!HasModalProgress())
+			UpdateLandscapingLimits();
 #ifndef DEBUG_DUMP_COMMANDS
 		Game::GameLoop();
 #endif
@@ -1337,7 +1499,8 @@ void StateGameLoop()
 
 	Layouter::ReduceLineCache();
 
-	if (_game_mode == GM_EDITOR) {
+	if (_game_mode == GM_EDITOR)
+	{
 		BasePersistentStorageArray::SwitchMode(PSM_ENTER_GAMELOOP);
 		RunTileLoop();
 		CallVehicleTicks();
@@ -1347,8 +1510,11 @@ void StateGameLoop()
 
 		CallWindowGameTickEvent();
 		NewsLoop();
-	} else {
-		if (_debug_desync_level > 2 && _date_fract == 0 && (_date & 0x1F) == 0) {
+	}
+	else
+	{
+		if (_debug_desync_level > 2 && _date_fract == 0 && (_date & 0x1F) == 0)
+		{
 			/* Save the desync savegame if needed. */
 			char name[MAX_PATH];
 			seprintf(name, lastof(name), "dmp_cmds_%08x_%08x.sav", _settings_game.game_creation.generation_seed, _date);
@@ -1406,7 +1572,8 @@ static void DoAutosave()
  */
 bool RequestNewGRFScan(NewGRFScanCallback *callback)
 {
-	if (_request_newgrf_scan) return false;
+	if (_request_newgrf_scan)
+		return false;
 
 	_request_newgrf_scan = true;
 	_request_newgrf_scan_callback = callback;
@@ -1415,31 +1582,37 @@ bool RequestNewGRFScan(NewGRFScanCallback *callback)
 
 void GameLoop()
 {
-	if (_game_mode == GM_BOOTSTRAP) {
+	if (_game_mode == GM_BOOTSTRAP)
+	{
 		/* Check for UDP stuff */
-		if (_network_available) NetworkBackgroundLoop();
+		if (_network_available)
+			NetworkBackgroundLoop();
 		return;
 	}
 
-	if (_request_newgrf_scan) {
+	if (_request_newgrf_scan)
+	{
 		ScanNewGRFFiles(_request_newgrf_scan_callback);
 		_request_newgrf_scan = false;
 		_request_newgrf_scan_callback = nullptr;
 		/* In case someone closed the game during our scan, don't do anything else. */
-		if (_exit_game) return;
+		if (_exit_game)
+			return;
 	}
 
 	ProcessAsyncSaveFinish();
 
 	/* autosave game? */
-	if (_do_autosave) {
+	if (_do_autosave)
+	{
 		DoAutosave();
 		_do_autosave = false;
 		SetWindowDirty(WC_STATUS_BAR, 0);
 	}
 
 	/* switch game mode? */
-	if (_switch_mode != SM_NONE && !HasModalProgress()) {
+	if (_switch_mode != SM_NONE && !HasModalProgress())
+	{
 		SwitchToMode(_switch_mode);
 		_switch_mode = SM_NONE;
 	}
@@ -1447,13 +1620,18 @@ void GameLoop()
 	IncreaseSpriteLRU();
 
 	/* Check for UDP stuff */
-	if (_network_available) NetworkBackgroundLoop();
+	if (_network_available)
+		NetworkBackgroundLoop();
 
-	if (_networking && !HasModalProgress()) {
+	if (_networking && !HasModalProgress())
+	{
 		/* Multiplayer */
 		NetworkGameLoop();
-	} else {
-		if (_network_reconnect > 0 && --_network_reconnect == 0) {
+	}
+	else
+	{
+		if (_network_reconnect > 0 && --_network_reconnect == 0)
+		{
 			/* This means that we want to reconnect to the last host
 			 * We do this here, because it means that the network is really closed */
 			NetworkClientConnectGame(_settings_client.network.last_joined, COMPANY_SPECTATOR);
@@ -1462,7 +1640,8 @@ void GameLoop()
 		StateGameLoop();
 	}
 
-	if (!_pause_mode && HasBit(_display_opt, DO_FULL_ANIMATION)) DoPaletteAnimations();
+	if (!_pause_mode && HasBit(_display_opt, DO_FULL_ANIMATION))
+		DoPaletteAnimations();
 
 	SoundDriver::GetInstance()->MainLoop();
 	MusicLoop();
