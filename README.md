@@ -1,4 +1,6 @@
-# OpenTTD
+# GoKritz's modified version of OpenTTD
+Just wanted to make it a bit more obvious to anyone who might be reading that this is NOT the official source code for OpenTTD.
+Below this is the original README.md in case you need help compiling the code.
 
 ## Table of contents
 
