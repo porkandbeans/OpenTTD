@@ -2,6 +2,13 @@
 Just wanted to make it a bit more obvious to anyone who might be reading that this is NOT the official source code for OpenTTD.
 On linux (and possibly windows too with git?) it's relatively simple to compile.
 
+# My changes
+- Anything that would normally cost you money now gives you that money instead.
+- Cars and trains move a lot faster
+- Town names can now contain swear-words
+- Town names WILL contain swear-words
+- The main menu no longer loads a noisy bustling city, but instead a serene ocean of nothing.
+
 ## Make sure you have the latest version of cmake!
 
 ```
