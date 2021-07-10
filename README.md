@@ -1,6 +1,6 @@
 # GoKritz's modified version of OpenTTD
 Just wanted to make it a bit more obvious to anyone who might be reading that this is NOT the official source code for OpenTTD.
-On linux (and possibly windows too with git?) it's relatively simple.
+On linux (and possibly windows too with git?) it's relatively simple to compile.
 
 ## Make sure you have the latest version of cmake!
 
